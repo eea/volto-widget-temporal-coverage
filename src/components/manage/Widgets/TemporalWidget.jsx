@@ -23,19 +23,8 @@ const messages = defineMessages({
 });
 
 const TemporalWidget = (props) => {
-  const { data, block, onChangeBlock, intl } = props;
-  const [selectedOption, setOption] = useState(
-    data.temporal ? [data.temporal] : null,
-  );
-  React.useEffect(() => {
-    onChangeBlock(block, {
-      ...data,
-      temporal:
-        selectedOption && selectedOption.length !== 0
-          ? selectedOption[0]
-          : null,
-    });
-  }, [selectedOption]);
+  const { data, block, onChange, intl } = props;
+
   return (
     <FormFieldWrapper {...props} columns={1}>
       <Grid>
@@ -49,6 +38,7 @@ const TemporalWidget = (props) => {
           </Grid.Column>
           <Grid.Column width="8" style={{ flexDirection: 'unset' }}>
             <CreatableSelect
+              defaultValue={data.temporal}
               isMulti
               allowCreateWhileLoading={true}
               id="select-temporal-coverage"
@@ -65,19 +55,13 @@ const TemporalWidget = (props) => {
               isValidNewOption={(inputValue, selectValue, selectOptions) => {
                 return /^\d+$/.test(parseInt(inputValue.split('-')[0]));
               }}
-              value={selectedOption || data.temporal}
+              //value={selectedOption || data.temporal}
               styles={customSelectStyles}
               theme={selectTheme}
               components={{ DropdownIndicator, Option }}
-              onChange={(field, value) => {
-                setOption((prevState) =>
-                  field
-                    ? field.map((item) => {
-                        return { value: item.value, label: item.label };
-                      })
-                    : null,
-                );
-              }}
+              onChange={(field, value) =>
+                onChange(field, value === '' ? undefined : value)
+              }
             />
           </Grid.Column>
         </Grid.Row>
