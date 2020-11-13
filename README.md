@@ -1,13 +1,12 @@
 # volto-widget-temporal-coverage
 [![Releases](https://img.shields.io/github/v/release/eea/volto-widget-temporal-coverage)](https://github.com/eea/volto-widget-temporal-coverage/releases)
 
-[Volto](https://github.com/plone/volto) add-on
+[Volto](https://github.com/plone/volto) Widget: Temporal Coverage
 
 ## Features
 
-###
+![Widget Temporal coverage](https://github.com/eea/volto-widget-temporal-coverage/raw/docs/docs/volto-widget-temporal-coverage.gif)
 
-Demo GIF
 
 ## Getting started
 
