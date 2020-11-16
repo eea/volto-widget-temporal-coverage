@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Form } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import { defineMessages, injectIntl } from 'react-intl';
 import CreatableSelect from 'react-select/creatable';
 import { FormFieldWrapper } from '@plone/volto/components';
@@ -23,7 +23,7 @@ const messages = defineMessages({
 });
 
 const TemporalWidget = (props) => {
-  const { data, block, onChange, intl } = props;
+  const { data, onChange, intl } = props;
 
   return (
     <FormFieldWrapper {...props} columns={1}>
@@ -73,7 +73,6 @@ const TemporalWidget = (props) => {
 TemporalWidget.propTypes = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,
   block: PropTypes.string.isRequired,
-  onChangeBlock: PropTypes.func.isRequired,
 };
 
 export default injectIntl(TemporalWidget);
