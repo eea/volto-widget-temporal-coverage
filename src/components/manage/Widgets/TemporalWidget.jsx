@@ -23,10 +23,16 @@ const messages = defineMessages({
 });
 
 const TemporalWidget = (props) => {
-  const { data, onChange, intl } = props;
+  const {
+    data,
+    onChange,
+    intl,
+    id = 'select-temporal-coverage',
+    title = 'temporal coverage',
+  } = props;
 
   return (
-    <FormFieldWrapper {...props} columns={1}>
+    <FormFieldWrapper {...props} id={id} title={title} columns={1}>
       <Grid>
         <Grid.Row stretched>
           <Grid.Column width="4">
@@ -41,7 +47,7 @@ const TemporalWidget = (props) => {
               defaultValue={data.temporal}
               isMulti
               allowCreateWhileLoading={true}
-              id="select-temporal-coverage"
+              id={id}
               name="select-temporal-coverage"
               className="react-select-container"
               classNamePrefix="react-select"
