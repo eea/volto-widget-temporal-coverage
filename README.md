@@ -30,7 +30,7 @@
    ],
 
    "dependencies": {
-       "@eeacms/volto-widget-temporal-coverage": "^1.0.0"
+       "@eeacms/volto-widget-temporal-coverage": "^2.0.0"
    }
    ```
 
