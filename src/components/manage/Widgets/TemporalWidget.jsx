@@ -24,7 +24,7 @@ const messages = defineMessages({
 
 const TemporalWidget = (props) => {
   const {
-    data,
+    data = {},
     onChange,
     intl,
     id = 'select-temporal-coverage',
