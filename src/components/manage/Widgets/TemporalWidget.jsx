@@ -10,6 +10,7 @@ import {
   selectTheme,
   customSelectStyles,
 } from '@plone/volto/components/manage/Widgets/SelectStyling';
+import './public.less';
 
 const messages = defineMessages({
   temporalCoverage: {
@@ -24,7 +25,7 @@ const messages = defineMessages({
 
 const TemporalWidget = (props) => {
   const {
-    data,
+    data = {},
     onChange,
     intl,
     id = 'select-temporal-coverage',
@@ -32,7 +33,13 @@ const TemporalWidget = (props) => {
   } = props;
 
   return (
-    <FormFieldWrapper {...props} id={id} title={title} columns={1}>
+    <FormFieldWrapper
+      {...props}
+      id={id}
+      className="temporal-field-wrapper"
+      title={title}
+      columns={1}
+    >
       <Grid>
         <Grid.Row stretched>
           <Grid.Column width="4">
