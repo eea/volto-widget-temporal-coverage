@@ -25,7 +25,7 @@ const messages = defineMessages({
 
 const TemporalWidget = (props) => {
   const {
-    data = {},
+    value = { temporal: [] },
     onChange,
     intl,
     id = 'select-temporal-coverage',
@@ -51,7 +51,7 @@ const TemporalWidget = (props) => {
           </Grid.Column>
           <Grid.Column width="8" style={{ flexDirection: 'unset' }}>
             <CreatableSelect
-              defaultValue={data.temporal}
+              defaultValue={value.temporal}
               isMulti
               allowCreateWhileLoading={true}
               id={id}
@@ -72,9 +72,9 @@ const TemporalWidget = (props) => {
               styles={customSelectStyles}
               theme={selectTheme}
               components={{ DropdownIndicator, Option }}
-              onChange={(field, value) =>
-                onChange(field, value === '' ? undefined : value)
-              }
+              onChange={(value, action) => {
+                onChange(id, value === '' ? undefined : { temporal: value });
+              }}
             />
           </Grid.Column>
         </Grid.Row>
