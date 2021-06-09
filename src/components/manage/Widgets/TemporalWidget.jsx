@@ -84,8 +84,8 @@ const TemporalWidget = (props) => {
 };
 
 TemporalWidget.propTypes = {
-  data: PropTypes.objectOf(PropTypes.any).isRequired,
-  block: PropTypes.string.isRequired,
+  value: PropTypes.objectOf(PropTypes.any),
+  block: PropTypes.string,
 };
 
 export default injectIntl(TemporalWidget);
