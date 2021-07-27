@@ -27,7 +27,7 @@ function findIdx(linearized, val) {
   let start = 0;
   let end = linearized.length - 1;
   if (val < linearized[start]) {
-    return start
+    return start;
   }
   if (val > linearized[end]) {
     return end + 1;
@@ -36,7 +36,7 @@ function findIdx(linearized, val) {
     let mid = Math.floor((start + end) / 2);
     if (linearized[mid] < val) {
       start = mid + 1;
-    } else  if (linearized[mid] > val){
+    } else if (linearized[mid] > val) {
       end = mid - 1;
     } else {
       return mid;
@@ -46,9 +46,9 @@ function findIdx(linearized, val) {
 }
 
 function addSorted(linearized, value) {
-  if (value.includes("-")) {
-    let start = parseInt(value.split("-")[0]);
-    let end = parseInt(value.split("-")[1]);
+  if (value.includes('-')) {
+    let start = parseInt(value.split('-')[0]);
+    let end = parseInt(value.split('-')[1]);
     let idx = findIdx(linearized, start);
     for (let year = start; year <= end; year++) {
       if (year !== linearized[idx]) {
@@ -69,15 +69,18 @@ function createIntervals(linearized) {
   let intervals = [];
   let current = [linearized[0], linearized[0]];
   for (let i = 1; i < linearized.length; i++) {
-    if (linearized[i] === (current[1] + 1)) {
+    if (linearized[i] === current[1] + 1) {
       current[1] = linearized[i];
     } else {
       intervals.push(current);
       current = [linearized[i], linearized[i]];
     }
   }
-  if ((intervals.length > 0 && intervals[intervals.length - 1][0] !== current[0]) ||
-      intervals.length == 0) {
+  if (
+    (intervals.length > 0 &&
+      intervals[intervals.length - 1][0] !== current[0]) ||
+    intervals.length === 0
+  ) {
     intervals.push(current);
   }
   linearized = [];
@@ -86,7 +89,9 @@ function createIntervals(linearized) {
       linearized.push(intervals[i][0].toString());
       continue;
     }
-    linearized.push(intervals[i][0].toString() + "-" + intervals[i][1].toString());
+    linearized.push(
+      intervals[i][0].toString() + '-' + intervals[i][1].toString(),
+    );
   }
   return linearized;
 }
@@ -96,7 +101,7 @@ function getValues(value) {
   let unique = {};
   for (let i = 0; i < value.length; i++) {
     const nr = value[i].value;
-    if (nr.includes("-")) {
+    if (nr.includes('-')) {
       let year = parseInt(nr.split('-')[0]);
       while (year <= parseInt(nr.split('-')[1])) {
         if (!unique[year]) {
@@ -128,7 +133,7 @@ const TemporalWidget = (props) => {
 
   const createOption = (label) => ({
     label,
-    value: label
+    value: label,
   });
   const [valueSelect, setValueSelect] = React.useState(value.temporal);
   let linearized = getValues(valueSelect);
@@ -173,8 +178,13 @@ const TemporalWidget = (props) => {
                 // linearized keeps the years one by one
                 linearized = addSorted(linearized, newOption);
                 // then intervals are created from linearized
-                let intervals = createIntervals(linearized).map(option => createOption(option));
-                onChange(id, value === '' ? undefined : { temporal: intervals });
+                let intervals = createIntervals(linearized).map((option) =>
+                  createOption(option),
+                );
+                onChange(
+                  id,
+                  value === '' ? undefined : { temporal: intervals },
+                );
                 // rendering
                 setValueSelect(intervals);
               }}
