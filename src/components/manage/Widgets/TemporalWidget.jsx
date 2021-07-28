@@ -136,6 +136,7 @@ const TemporalWidget = (props) => {
     value: label,
   });
   const [valueSelect, setValueSelect] = React.useState(value.temporal);
+  const [inputValue, setInputValue] = React.useState('');
   let linearized = getValues(valueSelect);
 
   return (
@@ -161,6 +162,7 @@ const TemporalWidget = (props) => {
               isMulti
               allowCreateWhileLoading={true}
               id={id}
+              inputValue={inputValue}
               name="select-temporal-coverage"
               className="react-select-container"
               classNamePrefix="react-select"
@@ -171,6 +173,17 @@ const TemporalWidget = (props) => {
                   value: '',
                 },
               ]}
+              onInputChange={(newInputValue) => {
+                if (
+                  newInputValue.length === 5 &&
+                  newInputValue.length > inputValue.length &&
+                  newInputValue[4] !== '-'
+                ) {
+                  newInputValue =
+                    newInputValue.slice(0, 4) + '-' + newInputValue.slice(4, 5);
+                }
+                setInputValue(newInputValue);
+              }}
               isValidNewOption={(inputValue, selectValue, selectOptions) => {
                 return /^\d+$/.test(parseInt(inputValue.split('-')[0]));
               }}
