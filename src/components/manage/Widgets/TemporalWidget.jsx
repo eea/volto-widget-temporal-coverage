@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from 'semantic-ui-react';
 import { defineMessages, injectIntl } from 'react-intl';
@@ -23,103 +23,113 @@ const messages = defineMessages({
   },
 });
 
-function findIdx(linearized, val) {
-  let start = 0;
-  let end = linearized.length - 1;
-  if (val < linearized[start]) {
-    return start;
-  }
-  if (val > linearized[end]) {
-    return end + 1;
-  }
-  while (start < end) {
-    let mid = Math.floor((start + end) / 2);
-    if (linearized[mid] < val) {
-      start = mid + 1;
-    } else if (linearized[mid] > val) {
-      end = mid - 1;
-    } else {
-      return mid;
-    }
-  }
-  return start;
-}
+const createOption = (label) => ({
+  label,
+  value: label,
+});
 
-function addSorted(linearized, value) {
-  if (value.includes('-')) {
-    let start = parseInt(value.split('-')[0]);
-    let end = parseInt(value.split('-')[1]);
-    let idx = findIdx(linearized, start);
-    for (let year = start; year <= end; year++) {
-      if (year !== linearized[idx]) {
-        linearized.splice(idx, 0, year);
+function addTemporalValues(current_temporal_values, new_values) {
+  let year_values = current_temporal_values.map((item) => item.value);
+  if (new_values.includes('-')) {
+    let split_values = new_values.split('-');
+    let start_year = parseInt(split_values[0]);
+    let end_year = parseInt(split_values[1]);
+    for (let year = start_year; year <= end_year; year++) {
+      if (year_values.indexOf(year) !== -1) {
+        continue;
       }
-      idx++;
+      year_values.push(year);
     }
   } else {
-    const idx = findIdx(linearized, parseInt(value));
-    if (linearized[idx] !== parseInt(value)) {
-      linearized.splice(idx, 0, parseInt(value));
+    const year = parseInt(new_values);
+    if (year_values.indexOf(year) === -1) {
+      year_values.push(year);
     }
   }
-  return linearized;
+  year_values.sort();
+  return year_values.map((year) => createOption(year));
 }
 
-function createIntervals(linearized) {
-  let intervals = [];
-  let current = [linearized[0], linearized[0]];
-  for (let i = 1; i < linearized.length; i++) {
-    if (linearized[i] === current[1] + 1) {
-      current[1] = linearized[i];
+function createTemporalRangeOptions(temporal_values) {
+  let temporal_intervals = [];
+  if (!temporal_values.length) {
+    return temporal_values;
+  }
+  let current_temporal_interval = [
+    temporal_values[0].value,
+    temporal_values[0].value,
+  ];
+
+  /* exit early if first temporal value is already an interval */
+  if (current_temporal_interval[0].toString().indexOf('-') !== -1) {
+    return temporal_values;
+  }
+  for (let i = 1; i < temporal_values.length; i++) {
+    let year = temporal_values[i].value;
+    /* exit early if current temporal value is already an interval */
+    if (year.toString().indexOf('-') !== -1) {
+      return temporal_values;
+    } else if (year === current_temporal_interval[1] + 1) {
+      current_temporal_interval[1] = year;
     } else {
-      intervals.push(current);
-      current = [linearized[i], linearized[i]];
+      temporal_intervals.push(current_temporal_interval);
+      current_temporal_interval = [year, year];
     }
   }
+
+  /* append last temporal_interval in case last value doesn't match 
+  the current interval value or we have no intervals */
   if (
-    (intervals.length > 0 &&
-      intervals[intervals.length - 1][0] !== current[0]) ||
-    intervals.length === 0
+    (temporal_intervals.length &&
+      temporal_intervals[temporal_intervals.length - 1][0] !==
+        current_temporal_interval[0]) ||
+    !temporal_intervals.length
   ) {
-    intervals.push(current);
+    temporal_intervals.push(current_temporal_interval);
   }
-  linearized = [];
-  for (let i = 0; i < intervals.length; i++) {
-    if (intervals[i][0] === intervals[i][1]) {
-      linearized.push(intervals[i][0].toString());
-      continue;
+
+  let temporal_range_options = [];
+  for (let i = 0; i < temporal_intervals.length; i++) {
+    let pair_years = temporal_intervals[i];
+    let str_year_values = [pair_years[0].toString(), pair_years[1].toString()];
+    let start_year = str_year_values[0];
+    let end_year = str_year_values[1];
+    if (start_year === end_year) {
+      temporal_range_options.push({ label: start_year, value: start_year });
+    } else {
+      let range_year_values = start_year + '-' + end_year;
+      temporal_range_options.push({
+        label: range_year_values,
+        value: range_year_values,
+      });
     }
-    linearized.push(
-      intervals[i][0].toString() + '-' + intervals[i][1].toString(),
-    );
   }
-  return linearized;
+  return temporal_range_options;
 }
 
-function getValues(value) {
-  let values = [];
-  let unique = {};
+function getIndividualValues(value) {
+  let year_values = [];
   for (let i = 0; i < value.length; i++) {
-    const nr = value[i].value;
-    if (nr.includes('-')) {
-      let year = parseInt(nr.split('-')[0]);
-      while (year <= parseInt(nr.split('-')[1])) {
-        if (!unique[year]) {
-          unique[year] = true;
-          values.push(year);
-          year++;
+    const val = value[i].value;
+    if (val && val.includes('-')) {
+      let split_values = val.split('-');
+      let year = parseInt(split_values[0]);
+      let end_year = parseInt(split_values[1]);
+      while (year <= end_year) {
+        if (year_values.indexOf(year) === -1) {
+          year_values.push(year);
         }
+        year++;
       }
-      continue;
-    }
-
-    if (!unique[parseInt(nr)]) {
-      values.push(parseInt(nr));
-      unique[parseInt(nr)] = true;
+    } else {
+      let nr = parseInt(val);
+      if (year_values.indexOf(nr) === -1) {
+        year_values.push(nr);
+      }
     }
   }
-  values.sort();
-  return values;
+  year_values.sort();
+  return year_values.map((year) => createOption(year));
 }
 
 const TemporalWidget = (props) => {
@@ -130,14 +140,12 @@ const TemporalWidget = (props) => {
     id = 'select-temporal-coverage',
     title = 'temporal coverage',
   } = props;
+  const [currentInputValue, setCurrentInputValue] = React.useState('');
+  const [temporalRangeOptions, setTemporalRangeOptions] = React.useState([]);
 
-  const createOption = (label) => ({
-    label,
-    value: label,
-  });
-  const [valueSelect, setValueSelect] = React.useState(value.temporal);
-  const [inputValue, setInputValue] = React.useState('');
-  let linearized = getValues(valueSelect);
+  useEffect(() => {
+    setTemporalRangeOptions(createTemporalRangeOptions(value.temporal));
+  }, [value.temporal]);
 
   return (
     <FormFieldWrapper
@@ -158,15 +166,14 @@ const TemporalWidget = (props) => {
           </Grid.Column>
           <Grid.Column width="8" style={{ flexDirection: 'unset' }}>
             <CreatableSelect
-              defaultValue={value.temporal}
+              defaultValue={temporalRangeOptions}
               isMulti
               allowCreateWhileLoading={true}
               id={id}
-              inputValue={inputValue}
+              inputValue={currentInputValue}
               name="select-temporal-coverage"
               className="react-select-container"
               classNamePrefix="react-select"
-              // placeholder="Select criteria"
               options={[
                 {
                   label: intl.formatMessage(messages.NoSelection),
@@ -174,41 +181,62 @@ const TemporalWidget = (props) => {
                 },
               ]}
               onInputChange={(newInputValue) => {
+                if (!newInputValue) {
+                  return setCurrentInputValue(newInputValue);
+                }
+                let new_input_length = newInputValue.length;
+                let last_char = newInputValue[new_input_length - 1];
+                // dissallow non numeric values and allow - only as 5th char
                 if (
-                  newInputValue.length === 5 &&
-                  newInputValue.length > inputValue.length &&
+                  (last_char === '-' && new_input_length !== 5) ||
+                  (['-', '0'].indexOf(last_char) === -1 && !parseInt(last_char))
+                ) {
+                  return currentInputValue;
+                }
+
+                if (
+                  new_input_length === 5 &&
+                  new_input_length > currentInputValue.length &&
                   newInputValue[4] !== '-'
                 ) {
                   newInputValue =
                     newInputValue.slice(0, 4) + '-' + newInputValue.slice(4, 5);
                 }
-                setInputValue(newInputValue);
+                if (new_input_length <= 9) {
+                  setCurrentInputValue(newInputValue);
+                }
               }}
-              isValidNewOption={(inputValue, selectValue, selectOptions) => {
+              isValidNewOption={(inputValue) => {
+                let new_option = inputValue.split('-');
+                // allow only ranges when second value is higher
+                if (new_option.length === 2) {
+                  let first_value = parseInt(new_option[0]);
+                  let second_value = parseInt(new_option[1]);
+                  return first_value < second_value;
+                }
                 return /^\d+$/.test(parseInt(inputValue.split('-')[0]));
               }}
               onCreateOption={(newOption) => {
-                // linearized keeps the years one by one
-                linearized = addSorted(linearized, newOption);
-                // then intervals are created from linearized
-                let intervals = createIntervals(linearized).map((option) =>
-                  createOption(option),
+                let temporal_values = addTemporalValues(
+                  value.temporal,
+                  newOption,
                 );
                 onChange(
                   id,
-                  value === '' ? undefined : { temporal: intervals },
+                  newOption === '' ? undefined : { temporal: temporal_values },
                 );
-                // rendering
-                setValueSelect(intervals);
               }}
-              value={valueSelect}
-              //value={selectedOption || data.temporal}
+              value={temporalRangeOptions}
               styles={customSelectStyles}
               theme={selectTheme}
               components={{ DropdownIndicator, Option }}
-              onChange={(value, action) => {
-                onChange(id, value === '' ? undefined : { temporal: value });
-                setValueSelect(value);
+              onChange={(value) => {
+                let temporal_values =
+                  (value.length && getIndividualValues(value)) || value;
+                onChange(
+                  id,
+                  value === '' ? undefined : { temporal: temporal_values },
+                );
               }}
             />
           </Grid.Column>
