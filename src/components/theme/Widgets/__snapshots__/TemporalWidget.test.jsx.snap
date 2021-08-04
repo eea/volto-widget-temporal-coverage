@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TemporalWidget view tests renders a widget component where the values are wrapped by custom child tags 1`] = `
+<div
+  className="temporal-coverage widget"
+>
+  <div
+    className="temporal-coverage-value"
+  >
+    <strong>
+      1890
+    </strong>
+  </div>
+  <div
+    className="temporal-coverage-value"
+  >
+    <strong>
+      1900-1905
+    </strong>
+  </div>
+</div>
+`;
+
+exports[`TemporalWidget view tests renders a widget component with a custom css class 1`] = `
+<div
+  className="custom-css-class temporal-coverage widget"
+>
+  <div
+    className="temporal-coverage-value"
+  >
+    1900
+  </div>
+</div>
+`;
+
+exports[`TemporalWidget view tests renders a widget component with a single temporal value 1`] = `
+<div
+  className="temporal-coverage widget"
+>
+  <div
+    className="temporal-coverage-value"
+  >
+    1900
+  </div>
+</div>
+`;
+
+exports[`TemporalWidget view tests renders a widget component with a single value and an extra existing temporal ranges 1`] = `
+<div
+  className="temporal-coverage widget"
+>
+  <div
+    className="temporal-coverage-value"
+  >
+    1890
+  </div>
+  <div
+    className="temporal-coverage-value"
+  >
+    1900-1905
+  </div>
+  <div
+    className="temporal-coverage-value"
+  >
+    1915
+  </div>
+</div>
+`;
+
+exports[`TemporalWidget view tests renders a widget component with an existing temporal range which gets expanded 1`] = `
+<div
+  className="temporal-coverage widget"
+>
+  <div
+    className="temporal-coverage-value"
+  >
+    1901-1902
+  </div>
+  <div
+    className="temporal-coverage-value"
+  >
+    1903
+  </div>
+</div>
+`;
+
+exports[`TemporalWidget view tests renders a widget component with existing temporal ranges and single values 1`] = `
+<div
+  className="temporal-coverage widget"
+>
+  <div
+    className="temporal-coverage-value"
+  >
+    1900-1904
+  </div>
+  <div
+    className="temporal-coverage-value"
+  >
+    1910
+  </div>
+</div>
+`;
+
+exports[`TemporalWidget view tests renders a widget component with multiple single values and  multiple temporal ranges 1`] = `
+<div
+  className="temporal-coverage widget"
+>
+  <div
+    className="temporal-coverage-value"
+  >
+    1890
+  </div>
+  <div
+    className="temporal-coverage-value"
+  >
+    1900-1905
+  </div>
+  <div
+    className="temporal-coverage-value"
+  >
+    1915
+  </div>
+  <div
+    className="temporal-coverage-value"
+  >
+    1920-1922
+  </div>
+</div>
+`;
+
+exports[`TemporalWidget view tests renders a widget component with multiple temporal ranges 1`] = `
+<div
+  className="temporal-coverage widget"
+>
+  <div
+    className="temporal-coverage-value"
+  >
+    1900-1901
+  </div>
+  <div
+    className="temporal-coverage-value"
+  >
+    1903-1904
+  </div>
+</div>
+`;
+
+exports[`TemporalWidget view tests renders a widget component with multiple temporal values 1`] = `
+<div
+  className="temporal-coverage widget"
+>
+  <div
+    className="temporal-coverage-value"
+  >
+    1900
+  </div>
+  <div
+    className="temporal-coverage-value"
+  >
+    1902
+  </div>
+</div>
+`;
+
+exports[`TemporalWidget view tests renders a widget component with temporal ranges 1`] = `
+<div
+  className="temporal-coverage widget"
+>
+  <div
+    className="temporal-coverage-value"
+  >
+    1900-1901
+  </div>
+</div>
+`;
+
+exports[`TemporalWidget view tests renders a widget component with temporal ranges and single values 1`] = `
+<div
+  className="temporal-coverage widget"
+>
+  <div
+    className="temporal-coverage-value"
+  >
+    1900-1902
+  </div>
+  <div
+    className="temporal-coverage-value"
+  >
+    1910
+  </div>
+</div>
+`;
+
+exports[`TemporalWidget view tests renders an empty temporal view widget component 1`] = `null`;

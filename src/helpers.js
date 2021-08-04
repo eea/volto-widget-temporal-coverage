@@ -3,6 +3,7 @@ export function createTemporalRangeOptions(temporal_values) {
   if (!temporal_values.length) {
     return temporal_values;
   }
+
   let current_temporal_interval = [
     temporal_values[0].value,
     temporal_values[0].value,
@@ -13,11 +14,12 @@ export function createTemporalRangeOptions(temporal_values) {
     return temporal_values;
   }
   for (let i = 1; i < temporal_values.length; i++) {
-    let year = temporal_values[i].value;
+    let value = temporal_values[i].value;
+    let year = parseInt(value);
     /* exit early if current temporal value is already an interval */
-    if (year.toString().indexOf('-') !== -1) {
+    if (value.toString().indexOf('-') !== -1) {
       return temporal_values;
-    } else if (year === current_temporal_interval[1] + 1) {
+    } else if (year === parseInt(current_temporal_interval[1]) + 1) {
       current_temporal_interval[1] = year;
     } else {
       temporal_intervals.push(current_temporal_interval);
@@ -29,8 +31,8 @@ export function createTemporalRangeOptions(temporal_values) {
   the current interval value or we have no intervals */
   if (
     (temporal_intervals.length &&
-      temporal_intervals[temporal_intervals.length - 1][0] !==
-        current_temporal_interval[0]) ||
+      temporal_intervals[temporal_intervals.length - 1][1] !==
+        current_temporal_interval[1]) ||
     !temporal_intervals.length
   ) {
     temporal_intervals.push(current_temporal_interval);
