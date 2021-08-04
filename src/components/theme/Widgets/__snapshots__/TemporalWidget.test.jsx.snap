@@ -45,45 +45,6 @@ exports[`TemporalWidget view tests renders a widget component with a single temp
 </div>
 `;
 
-exports[`TemporalWidget view tests renders a widget component with a single value and an extra existing temporal ranges 1`] = `
-<div
-  className="temporal-coverage widget"
->
-  <div
-    className="temporal-coverage-value"
-  >
-    1890
-  </div>
-  <div
-    className="temporal-coverage-value"
-  >
-    1900-1905
-  </div>
-  <div
-    className="temporal-coverage-value"
-  >
-    1915
-  </div>
-</div>
-`;
-
-exports[`TemporalWidget view tests renders a widget component with an existing temporal range which gets expanded 1`] = `
-<div
-  className="temporal-coverage widget"
->
-  <div
-    className="temporal-coverage-value"
-  >
-    1901-1902
-  </div>
-  <div
-    className="temporal-coverage-value"
-  >
-    1903
-  </div>
-</div>
-`;
-
 exports[`TemporalWidget view tests renders a widget component with existing temporal ranges and single values 1`] = `
 <div
   className="temporal-coverage widget"
