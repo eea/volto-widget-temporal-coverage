@@ -26,10 +26,13 @@ const messages = defineMessages({
   },
 });
 
-const createOption = (label) => ({
-  label,
-  value: label,
-});
+const createOption = (label) => {
+  const str_label = label.toString();
+  return {
+    label: str_label,
+    value: str_label,
+  };
+};
 
 function addTemporalValues(current_temporal_values, new_values) {
   let year_values = current_temporal_values.map((item) => item.value);
@@ -38,10 +41,9 @@ function addTemporalValues(current_temporal_values, new_values) {
     let start_year = parseInt(split_values[0]);
     let end_year = parseInt(split_values[1]);
     for (let year = start_year; year <= end_year; year++) {
-      if (year_values.indexOf(year) !== -1) {
-        continue;
+      if (year_values.indexOf(year) === -1) {
+        year_values.push(year);
       }
-      year_values.push(year);
     }
   } else {
     const year = parseInt(new_values);
@@ -149,8 +151,10 @@ const TemporalWidget = (props) => {
                     newInputValue.slice(0, 4) + '-' + newInputValue.slice(4, 5);
                 }
                 if (new_input_length <= 9) {
-                  setCurrentInputValue(newInputValue);
+                  return setCurrentInputValue(newInputValue);
                 }
+
+                return setCurrentInputValue(newInputValue);
               }}
               isValidNewOption={(inputValue) => {
                 let new_option = inputValue.split('-');
