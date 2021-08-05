@@ -153,3 +153,5 @@ exports[`TemporalWidget view tests renders a widget component with temporal rang
 `;
 
 exports[`TemporalWidget view tests renders an empty temporal view widget component 1`] = `null`;
+
+exports[`TemporalWidget view tests renders an empty temporal view widget component when value is null 1`] = `null`;

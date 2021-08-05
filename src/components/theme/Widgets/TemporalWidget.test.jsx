@@ -9,6 +9,12 @@ describe('TemporalWidget view tests', () => {
     expect(json).toMatchSnapshot();
   });
 
+  it('renders an empty temporal view widget component when value is null', () => {
+    const component = renderer.create(<TemporalWidget value={null} />);
+    const json = component.toJSON();
+    expect(json).toMatchSnapshot();
+  });
+
   it('renders a widget component with a single temporal value', () => {
     const component = renderer.create(
       <TemporalWidget value={[{ value: '1900', label: '1900' }]} />,

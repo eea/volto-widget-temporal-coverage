@@ -1,7 +1,7 @@
 export function createTemporalRangeOptions(temporal_values) {
   let temporal_intervals = [];
-  if (!temporal_values.length) {
-    return temporal_values;
+  if (!temporal_values || !temporal_values.length) {
+    return temporal_intervals;
   }
 
   let current_temporal_interval = [
