@@ -35,7 +35,9 @@ const createOption = (label) => {
 };
 
 function addTemporalValues(current_temporal_values, new_values) {
-  let year_values = current_temporal_values.map((item) => item.value);
+  let year_values = current_temporal_values
+    ? current_temporal_values.map((item) => item.value)
+    : [];
   if (new_values.includes('-')) {
     let split_values = new_values.split('-');
     let start_year = parseInt(split_values[0]);
@@ -71,7 +73,9 @@ function getIndividualValues(value) {
       }
     } else {
       let nr = parseInt(val);
-      if (year_values.indexOf(nr) === -1) {
+      // check if val was a number as you can click on no selection
+      // in which case you will get { 'label': 'no selection', value: ''}
+      if (nr && year_values.indexOf(nr) === -1) {
         year_values.push(nr);
       }
     }
@@ -88,13 +92,12 @@ const TemporalWidget = (props) => {
     id = 'select-temporal-coverage',
     title = 'temporal coverage',
   } = props;
-  let temporal_value = value.temporal || [];
 
   const [currentInputValue, setCurrentInputValue] = React.useState('');
   const [temporalRangeOptions, setTemporalRangeOptions] = React.useState([]);
 
   useEffect(() => {
-    setTemporalRangeOptions(createTemporalRangeOptions(temporal_value));
+    setTemporalRangeOptions(createTemporalRangeOptions(value.temporal));
   }, [value.temporal]);
 
   return (

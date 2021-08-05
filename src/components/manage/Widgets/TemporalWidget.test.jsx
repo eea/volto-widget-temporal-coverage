@@ -13,6 +13,27 @@ beforeAll(
     await require('@plone/volto/helpers/Loadable/Loadable').__setLoadables(),
 );
 
+test('renders an empty temporal widget edit component when temporal is missing', async () => {
+  const store = mockStore({
+    intl: {
+      locale: 'en',
+      messages: {},
+    },
+  });
+  const state = store.getState();
+  const component = render(
+    <Provider store={store}>
+      <TemporalWidget
+        value={state}
+        id="temporal"
+        title="My field"
+        onChange={() => {}}
+      />
+    </Provider>,
+  );
+  expect(component.container).toMatchSnapshot();
+});
+
 test('renders an temporal widget edit component when temporal is null', async () => {
   const store = mockStore({
     intl: {
