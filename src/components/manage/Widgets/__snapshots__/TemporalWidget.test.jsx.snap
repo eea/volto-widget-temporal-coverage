@@ -151,6 +151,232 @@ exports[`renders an temporal widget edit component 1`] = `
 </div>
 `;
 
+exports[`renders an temporal widget edit component even when temporal is null 1`] = `
+<div>
+  <div
+    class="inline field temporal-field-wrapper"
+  >
+    <div
+      class="ui grid"
+    >
+      <div
+        class="stretched row"
+      >
+        <div
+          class="twelve wide column"
+        >
+          <div
+            class="ui grid"
+          >
+            <div
+              class="stretched row"
+            >
+              <div
+                class="four wide column"
+              >
+                <div
+                  class="wrapper"
+                >
+                  <label
+                    for="select-listingblock-template"
+                  >
+                    Temporal coverage
+                  </label>
+                </div>
+              </div>
+              <div
+                class="eight wide column"
+                style="flex-direction: unset;"
+              >
+                <div
+                  class="react-select-container css-2b097c-container"
+                  id="temporal"
+                >
+                  <div
+                    class="react-select__control css-1ard45z-control"
+                  >
+                    <div
+                      class="react-select__value-container react-select__value-container--is-multi css-1a9cv00-ValueContainer"
+                    >
+                      <div
+                        class="react-select__placeholder css-1wa3eu0-placeholder"
+                      >
+                        Select...
+                      </div>
+                      <div
+                        class="css-b8ldur-Input"
+                      >
+                        <div
+                          class="react-select__input"
+                          style="display: inline-block;"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            autocapitalize="none"
+                            autocomplete="off"
+                            autocorrect="off"
+                            id="react-select-2-input"
+                            spellcheck="false"
+                            style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+                            tabindex="0"
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="react-select__indicators css-1hb7zxy-IndicatorsContainer"
+                    >
+                      <span
+                        class="react-select__indicator-separator css-6fp5c8-indicatorSeparator"
+                      />
+                      <div
+                        aria-hidden="true"
+                        class="react-select__indicator react-select__dropdown-indicator css-7hdh9a-DropdownIndicator"
+                      >
+                        <svg
+                          class="icon"
+                          style="height: 24px; width: auto; fill: #007bc1;"
+                          viewBox=""
+                          xmlns=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <input
+                      name="select-temporal-coverage"
+                      type="hidden"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders an temporal widget edit component when temporal is an empty list 1`] = `
+<div>
+  <div
+    class="inline field temporal-field-wrapper"
+  >
+    <div
+      class="ui grid"
+    >
+      <div
+        class="stretched row"
+      >
+        <div
+          class="twelve wide column"
+        >
+          <div
+            class="ui grid"
+          >
+            <div
+              class="stretched row"
+            >
+              <div
+                class="four wide column"
+              >
+                <div
+                  class="wrapper"
+                >
+                  <label
+                    for="select-listingblock-template"
+                  >
+                    Temporal coverage
+                  </label>
+                </div>
+              </div>
+              <div
+                class="eight wide column"
+                style="flex-direction: unset;"
+              >
+                <div
+                  class="react-select-container css-2b097c-container"
+                  id="temporal"
+                >
+                  <div
+                    class="react-select__control css-1ard45z-control"
+                  >
+                    <div
+                      class="react-select__value-container react-select__value-container--is-multi css-1a9cv00-ValueContainer"
+                    >
+                      <div
+                        class="react-select__placeholder css-1wa3eu0-placeholder"
+                      >
+                        Select...
+                      </div>
+                      <div
+                        class="css-b8ldur-Input"
+                      >
+                        <div
+                          class="react-select__input"
+                          style="display: inline-block;"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            autocapitalize="none"
+                            autocomplete="off"
+                            autocorrect="off"
+                            id="react-select-2-input"
+                            spellcheck="false"
+                            style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+                            tabindex="0"
+                            type="text"
+                            value=""
+                          />
+                          <div
+                            style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="react-select__indicators css-1hb7zxy-IndicatorsContainer"
+                    >
+                      <span
+                        class="react-select__indicator-separator css-6fp5c8-indicatorSeparator"
+                      />
+                      <div
+                        aria-hidden="true"
+                        class="react-select__indicator react-select__dropdown-indicator css-7hdh9a-DropdownIndicator"
+                      >
+                        <svg
+                          class="icon"
+                          style="height: 24px; width: auto; fill: #007bc1;"
+                          viewBox=""
+                          xmlns=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <input
+                      name="select-temporal-coverage"
+                      type="hidden"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders an temporal widget edit component with existing temporal ranges and single values 1`] = `
 <div>
   <div

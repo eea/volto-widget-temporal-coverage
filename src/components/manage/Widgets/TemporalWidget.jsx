@@ -82,17 +82,19 @@ function getIndividualValues(value) {
 
 const TemporalWidget = (props) => {
   const {
-    value = { temporal: [] },
     onChange,
+    value,
     intl,
     id = 'select-temporal-coverage',
     title = 'temporal coverage',
   } = props;
+  let temporal_value = value.temporal || [];
+
   const [currentInputValue, setCurrentInputValue] = React.useState('');
   const [temporalRangeOptions, setTemporalRangeOptions] = React.useState([]);
 
   useEffect(() => {
-    setTemporalRangeOptions(createTemporalRangeOptions(value.temporal));
+    setTemporalRangeOptions(createTemporalRangeOptions(temporal_value));
   }, [value.temporal]);
 
   return (
