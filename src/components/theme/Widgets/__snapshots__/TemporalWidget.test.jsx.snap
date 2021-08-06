@@ -1,6 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TemporalWidget view tests renders a widget component where the values are wrapped by custom child tags 1`] = `
+exports[`TemporalWidget view tests renders a widget when passing a single temporal value 1`] = `
+<div
+  className="temporal-coverage widget"
+>
+  <div
+    className="temporal-coverage-value"
+  >
+    1900
+  </div>
+</div>
+`;
+
+exports[`TemporalWidget view tests renders a widget where the values are wrapped by custom child tags 1`] = `
 <div
   className="temporal-coverage widget"
 >
@@ -21,7 +33,7 @@ exports[`TemporalWidget view tests renders a widget component where the values a
 </div>
 `;
 
-exports[`TemporalWidget view tests renders a widget component with a custom css class 1`] = `
+exports[`TemporalWidget view tests renders a widget with a custom css class 1`] = `
 <div
   className="custom-css-class temporal-coverage widget"
 >
@@ -33,19 +45,7 @@ exports[`TemporalWidget view tests renders a widget component with a custom css 
 </div>
 `;
 
-exports[`TemporalWidget view tests renders a widget component with a single temporal value 1`] = `
-<div
-  className="temporal-coverage widget"
->
-  <div
-    className="temporal-coverage-value"
-  >
-    1900
-  </div>
-</div>
-`;
-
-exports[`TemporalWidget view tests renders a widget component with existing temporal ranges and single values 1`] = `
+exports[`TemporalWidget view tests renders a widget with existing temporal ranges and single values 1`] = `
 <div
   className="temporal-coverage widget"
 >
@@ -62,7 +62,7 @@ exports[`TemporalWidget view tests renders a widget component with existing temp
 </div>
 `;
 
-exports[`TemporalWidget view tests renders a widget component with multiple single values and  multiple temporal ranges 1`] = `
+exports[`TemporalWidget view tests renders a widget with multiple single values and  multiple temporal ranges 1`] = `
 <div
   className="temporal-coverage widget"
 >
@@ -89,7 +89,7 @@ exports[`TemporalWidget view tests renders a widget component with multiple sing
 </div>
 `;
 
-exports[`TemporalWidget view tests renders a widget component with multiple temporal ranges 1`] = `
+exports[`TemporalWidget view tests renders a widget with multiple temporal ranges 1`] = `
 <div
   className="temporal-coverage widget"
 >
@@ -106,7 +106,7 @@ exports[`TemporalWidget view tests renders a widget component with multiple temp
 </div>
 `;
 
-exports[`TemporalWidget view tests renders a widget component with multiple temporal values 1`] = `
+exports[`TemporalWidget view tests renders a widget with multiple temporal values 1`] = `
 <div
   className="temporal-coverage widget"
 >
@@ -123,7 +123,7 @@ exports[`TemporalWidget view tests renders a widget component with multiple temp
 </div>
 `;
 
-exports[`TemporalWidget view tests renders a widget component with temporal ranges 1`] = `
+exports[`TemporalWidget view tests renders a widget with temporal ranges 1`] = `
 <div
   className="temporal-coverage widget"
 >
@@ -135,7 +135,7 @@ exports[`TemporalWidget view tests renders a widget component with temporal rang
 </div>
 `;
 
-exports[`TemporalWidget view tests renders a widget component with temporal ranges and single values 1`] = `
+exports[`TemporalWidget view tests renders a widget with temporal ranges and single values 1`] = `
 <div
   className="temporal-coverage widget"
 >
@@ -152,6 +152,6 @@ exports[`TemporalWidget view tests renders a widget component with temporal rang
 </div>
 `;
 
-exports[`TemporalWidget view tests renders an empty temporal view widget component 1`] = `null`;
+exports[`TemporalWidget view tests renders an empty widget when value is an empty list 1`] = `null`;
 
-exports[`TemporalWidget view tests renders an empty temporal view widget component when value is null 1`] = `null`;
+exports[`TemporalWidget view tests renders an empty widget when value is null 1`] = `null`;

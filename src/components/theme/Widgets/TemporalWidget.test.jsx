@@ -3,19 +3,19 @@ import renderer from 'react-test-renderer';
 import TemporalWidget from './TemporalWidget';
 
 describe('TemporalWidget view tests', () => {
-  it('renders an empty temporal view widget component', () => {
+  it('renders an empty widget when value is an empty list', () => {
     const component = renderer.create(<TemporalWidget value={[]} />);
     const json = component.toJSON();
     expect(json).toMatchSnapshot();
   });
 
-  it('renders an empty temporal view widget component when value is null', () => {
+  it('renders an empty widget when value is null', () => {
     const component = renderer.create(<TemporalWidget value={null} />);
     const json = component.toJSON();
     expect(json).toMatchSnapshot();
   });
 
-  it('renders a widget component with a single temporal value', () => {
+  it('renders a widget when passing a single temporal value', () => {
     const component = renderer.create(
       <TemporalWidget value={[{ value: '1900', label: '1900' }]} />,
     );
@@ -23,7 +23,7 @@ describe('TemporalWidget view tests', () => {
     expect(json).toMatchSnapshot();
   });
 
-  it('renders a widget component with multiple temporal values', () => {
+  it('renders a widget with multiple temporal values', () => {
     const component = renderer.create(
       <TemporalWidget
         value={[
@@ -36,7 +36,7 @@ describe('TemporalWidget view tests', () => {
     expect(json).toMatchSnapshot();
   });
 
-  it('renders a widget component with temporal ranges', () => {
+  it('renders a widget with temporal ranges', () => {
     const component = renderer.create(
       <TemporalWidget
         value={[
@@ -49,7 +49,7 @@ describe('TemporalWidget view tests', () => {
     expect(json).toMatchSnapshot();
   });
 
-  it('renders a widget component with multiple temporal ranges', () => {
+  it('renders a widget with multiple temporal ranges', () => {
     const component = renderer.create(
       <TemporalWidget
         value={[
@@ -64,7 +64,7 @@ describe('TemporalWidget view tests', () => {
     expect(json).toMatchSnapshot();
   });
 
-  it('renders a widget component with temporal ranges and single values', () => {
+  it('renders a widget with temporal ranges and single values', () => {
     const component = renderer.create(
       <TemporalWidget
         value={[
@@ -79,7 +79,7 @@ describe('TemporalWidget view tests', () => {
     expect(json).toMatchSnapshot();
   });
 
-  it('renders a widget component with existing temporal ranges and single values', () => {
+  it('renders a widget with existing temporal ranges and single values', () => {
     const component = renderer.create(
       <TemporalWidget
         value={[
@@ -92,7 +92,7 @@ describe('TemporalWidget view tests', () => {
     expect(json).toMatchSnapshot();
   });
 
-  it('renders a widget component with multiple single values and  multiple temporal ranges', () => {
+  it('renders a widget with multiple single values and  multiple temporal ranges', () => {
     const component = renderer.create(
       <TemporalWidget
         value={[
@@ -107,7 +107,7 @@ describe('TemporalWidget view tests', () => {
     expect(json).toMatchSnapshot();
   });
 
-  it('renders a widget component with a custom css class', () => {
+  it('renders a widget with a custom css class', () => {
     const component = renderer.create(
       <TemporalWidget
         className="custom-css-class"
@@ -118,7 +118,7 @@ describe('TemporalWidget view tests', () => {
     expect(json).toMatchSnapshot();
   });
 
-  it('renders a widget component where the values are wrapped by custom child tags', () => {
+  it('renders a widget where the values are wrapped by custom child tags', () => {
     const component = renderer.create(
       <TemporalWidget
         value={[
