@@ -1,3 +1,10 @@
+export const createOption = (label) => {
+  const str_label = label.toString();
+  return {
+    label: str_label,
+    value: str_label,
+  };
+};
 export function createTemporalRangeOptions(temporal_values) {
   let temporal_intervals = [];
   if (!temporal_values || !temporal_values.length) {
@@ -9,17 +16,10 @@ export function createTemporalRangeOptions(temporal_values) {
     temporal_values[0].value,
   ];
 
-  /* exit early if first temporal value is already an interval */
-  if (current_temporal_interval[0].toString().indexOf('-') !== -1) {
-    return temporal_values;
-  }
   for (let i = 1; i < temporal_values.length; i++) {
     let value = temporal_values[i].value;
     let year = parseInt(value);
-    /* exit early if current temporal value is already an interval */
-    if (value.toString().indexOf('-') !== -1) {
-      return temporal_values;
-    } else if (year === parseInt(current_temporal_interval[1]) + 1) {
+    if (year === parseInt(current_temporal_interval[1]) + 1) {
       current_temporal_interval[1] = year;
     } else {
       temporal_intervals.push(current_temporal_interval);
@@ -55,4 +55,34 @@ export function createTemporalRangeOptions(temporal_values) {
     }
   }
   return temporal_range_options;
+}
+
+export function getIndividualValues(values) {
+  let year_values = [];
+  if (!values) {
+    return year_values;
+  }
+  for (let i = 0; i < values.length; i++) {
+    const val = values[i].value;
+    if (val && val.includes('-')) {
+      let split_values = val.split('-');
+      let year = parseInt(split_values[0]);
+      let end_year = parseInt(split_values[1]);
+      while (year <= end_year) {
+        if (year_values.indexOf(year) === -1) {
+          year_values.push(year);
+        }
+        year++;
+      }
+    } else {
+      let nr = parseInt(val);
+      // check if val was a number as you can click on no selection
+      // in which case you will get { 'label': 'no selection', value: ''}
+      if (nr && year_values.indexOf(nr) === -1) {
+        year_values.push(nr);
+      }
+    }
+  }
+  year_values.sort();
+  return year_values.map((year) => createOption(year));
 }

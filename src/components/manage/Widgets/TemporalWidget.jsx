@@ -11,7 +11,11 @@ import {
   customSelectStyles,
 } from '@plone/volto/components/manage/Widgets/SelectStyling';
 
-import { createTemporalRangeOptions } from '@eeacms/volto-widget-temporal-coverage/helpers';
+import {
+  createTemporalRangeOptions,
+  getIndividualValues,
+  createOption,
+} from '@eeacms/volto-widget-temporal-coverage/helpers';
 
 import './public.less';
 
@@ -25,14 +29,6 @@ const messages = defineMessages({
     defaultMessage: 'No selection',
   },
 });
-
-const createOption = (label) => {
-  const str_label = label.toString();
-  return {
-    label: str_label,
-    value: str_label,
-  };
-};
 
 function addTemporalValues(current_temporal_values, new_values) {
   let year_values = current_temporal_values
@@ -57,33 +53,6 @@ function addTemporalValues(current_temporal_values, new_values) {
   return year_values.map((year) => createOption(year));
 }
 
-function getIndividualValues(value) {
-  let year_values = [];
-  for (let i = 0; i < value.length; i++) {
-    const val = value[i].value;
-    if (val && val.includes('-')) {
-      let split_values = val.split('-');
-      let year = parseInt(split_values[0]);
-      let end_year = parseInt(split_values[1]);
-      while (year <= end_year) {
-        if (year_values.indexOf(year) === -1) {
-          year_values.push(year);
-        }
-        year++;
-      }
-    } else {
-      let nr = parseInt(val);
-      // check if val was a number as you can click on no selection
-      // in which case you will get { 'label': 'no selection', value: ''}
-      if (nr && year_values.indexOf(nr) === -1) {
-        year_values.push(nr);
-      }
-    }
-  }
-  year_values.sort();
-  return year_values.map((year) => createOption(year));
-}
-
 const TemporalWidget = (props) => {
   const {
     onChange,
@@ -97,7 +66,9 @@ const TemporalWidget = (props) => {
   const [temporalRangeOptions, setTemporalRangeOptions] = React.useState([]);
 
   useEffect(() => {
-    setTemporalRangeOptions(createTemporalRangeOptions(value.temporal));
+    setTemporalRangeOptions(
+      createTemporalRangeOptions(getIndividualValues(value.temporal)),
+    );
   }, [value.temporal]);
 
   return (
@@ -173,7 +144,7 @@ const TemporalWidget = (props) => {
               }}
               onCreateOption={(newOption) => {
                 let temporal_values = addTemporalValues(
-                  value.temporal,
+                  getIndividualValues(value.temporal),
                   newOption,
                 );
                 onChange(
@@ -185,9 +156,9 @@ const TemporalWidget = (props) => {
               styles={customSelectStyles}
               theme={selectTheme}
               components={{ DropdownIndicator, Option }}
-              onChange={(value) => {
+              onChange={(values) => {
                 let temporal_values =
-                  (value.length && getIndividualValues(value)) || value;
+                  (value.length && getIndividualValues(values)) || values;
                 onChange(
                   id,
                   value === '' ? undefined : { temporal: temporal_values },

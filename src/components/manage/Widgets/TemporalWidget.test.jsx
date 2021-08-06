@@ -207,6 +207,31 @@ test('renders an temporal widget edit component with multiple ranges and single 
   expect(component.container).toMatchSnapshot();
 });
 
+test('renders an temporal widget edit component with joined temporal ranges from existing temporal ranges and new temporal ranges', async () => {
+  const store = mockStore({
+    intl: {
+      locale: 'en',
+      messages: {},
+    },
+    temporal: [
+      { value: '1898-1901', label: '1898-1901' },
+      { value: '1900-1905', label: '1900-1905' },
+    ],
+  });
+  const state = store.getState();
+  const component = render(
+    <Provider store={store}>
+      <TemporalWidget
+        value={state}
+        id="temporal"
+        title="My field"
+        onChange={() => {}}
+      />
+    </Provider>,
+  );
+  expect(component.container).toMatchSnapshot();
+});
+
 test('renders an temporal widget edit component with existing temporal ranges and single values', async () => {
   const store = mockStore({
     intl: {
@@ -217,6 +242,31 @@ test('renders an temporal widget edit component with existing temporal ranges an
       { value: '1890', label: '1890' },
       { value: '1900-1905', label: '1900-1905' },
       { value: '1915', label: '1915' },
+    ],
+  });
+  const state = store.getState();
+  const component = render(
+    <Provider store={store}>
+      <TemporalWidget
+        value={state}
+        id="temporal"
+        title="My field"
+        onChange={() => {}}
+      />
+    </Provider>,
+  );
+  expect(component.container).toMatchSnapshot();
+});
+
+test('renders an temporal widget edit component with existing temporal ranges ignoring value already present', async () => {
+  const store = mockStore({
+    intl: {
+      locale: 'en',
+      messages: {},
+    },
+    temporal: [
+      { value: '1900-1905', label: '1900-1905' },
+      { value: '1904', label: '1904' },
     ],
   });
   const state = store.getState();

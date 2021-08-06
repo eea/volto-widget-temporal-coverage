@@ -89,6 +89,23 @@ exports[`TemporalWidget view tests renders a widget with multiple single values 
 </div>
 `;
 
+exports[`TemporalWidget view tests renders a widget with multiple single values and temporal ranges where one single value is removed due to the previous range value 1`] = `
+<div
+  className="temporal-coverage widget"
+>
+  <div
+    className="temporal-coverage-value"
+  >
+    1900-1905
+  </div>
+  <div
+    className="temporal-coverage-value"
+  >
+    1907
+  </div>
+</div>
+`;
+
 exports[`TemporalWidget view tests renders a widget with multiple temporal ranges 1`] = `
 <div
   className="temporal-coverage widget"

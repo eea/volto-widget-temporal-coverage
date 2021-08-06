@@ -107,6 +107,20 @@ describe('TemporalWidget view tests', () => {
     expect(json).toMatchSnapshot();
   });
 
+  it('renders a widget with multiple single values and temporal ranges where one single value is removed due to the previous range value', () => {
+    const component = renderer.create(
+      <TemporalWidget
+        value={[
+          { value: '1900-1905', label: '1900-1905' },
+          { value: '1904', label: '1904' },
+          { value: '1907', label: '1907' },
+        ]}
+      />,
+    );
+    const json = component.toJSON();
+    expect(json).toMatchSnapshot();
+  });
+
   it('renders a widget with a custom css class', () => {
     const component = renderer.create(
       <TemporalWidget
