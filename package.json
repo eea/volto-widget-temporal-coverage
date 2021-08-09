@@ -1,6 +1,6 @@
 {
   "name": "@eeacms/volto-widget-temporal-coverage",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "volto-widget-temporal-coverage: Volto add-on",
   "main": "src/index.js",
   "author": "European Environment Agency: IDM2 A-Team",
@@ -16,8 +16,7 @@
     "type": "git",
     "url": "git@github.com:eea/volto-widget-temporal-coverage.git"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@cypress/code-coverage": "^3.9.5",
     "babel-plugin-transform-class-properties": "^6.24.1"
