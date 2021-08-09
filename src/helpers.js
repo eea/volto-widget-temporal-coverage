@@ -64,7 +64,7 @@ export function getIndividualValues(values) {
   }
   for (let i = 0; i < values.length; i++) {
     const val = values[i].value;
-    if (val && val.includes('-')) {
+    if (val && val.includes?.('-')) {
       let split_values = val.split('-');
       let year = parseInt(split_values[0]);
       let end_year = parseInt(split_values[1]);
