@@ -3,7 +3,7 @@
 exports[`renders an empty temporal widget edit component when temporal is missing 1`] = `
 <div>
   <div
-    class="inline field temporal-field-wrapper"
+    class="inline field temporal-field-wrapper field-wrapper-temporal"
   >
     <div
       class="ui grid"
@@ -41,6 +41,12 @@ exports[`renders an empty temporal widget edit component when temporal is missin
                   class="react-select-container css-2b097c-container"
                   id="temporal"
                 >
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                  />
                   <div
                     class="react-select__control css-1ard45z-control"
                   >
@@ -116,7 +122,7 @@ exports[`renders an empty temporal widget edit component when temporal is missin
 exports[`renders an temporal widget edit component 1`] = `
 <div>
   <div
-    class="inline field temporal-field-wrapper"
+    class="inline field temporal-field-wrapper field-wrapper-temporal"
   >
     <div
       class="ui grid"
@@ -154,6 +160,12 @@ exports[`renders an temporal widget edit component 1`] = `
                   class="react-select-container css-2b097c-container"
                   id="temporal"
                 >
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                  />
                   <div
                     class="react-select__control css-1ard45z-control"
                   >
@@ -267,7 +279,7 @@ exports[`renders an temporal widget edit component 1`] = `
 exports[`renders an temporal widget edit component when temporal is an empty list 1`] = `
 <div>
   <div
-    class="inline field temporal-field-wrapper"
+    class="inline field temporal-field-wrapper field-wrapper-temporal"
   >
     <div
       class="ui grid"
@@ -305,6 +317,12 @@ exports[`renders an temporal widget edit component when temporal is an empty lis
                   class="react-select-container css-2b097c-container"
                   id="temporal"
                 >
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                  />
                   <div
                     class="react-select__control css-1ard45z-control"
                   >
@@ -380,7 +398,7 @@ exports[`renders an temporal widget edit component when temporal is an empty lis
 exports[`renders an temporal widget edit component when temporal is null 1`] = `
 <div>
   <div
-    class="inline field temporal-field-wrapper"
+    class="inline field temporal-field-wrapper field-wrapper-temporal"
   >
     <div
       class="ui grid"
@@ -418,6 +436,12 @@ exports[`renders an temporal widget edit component when temporal is null 1`] = `
                   class="react-select-container css-2b097c-container"
                   id="temporal"
                 >
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                  />
                   <div
                     class="react-select__control css-1ard45z-control"
                   >
@@ -493,7 +517,7 @@ exports[`renders an temporal widget edit component when temporal is null 1`] = `
 exports[`renders an temporal widget edit component with existing temporal ranges and single values 1`] = `
 <div>
   <div
-    class="inline field temporal-field-wrapper"
+    class="inline field temporal-field-wrapper field-wrapper-temporal"
   >
     <div
       class="ui grid"
@@ -531,6 +555,12 @@ exports[`renders an temporal widget edit component with existing temporal ranges
                   class="react-select-container css-2b097c-container"
                   id="temporal"
                 >
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                  />
                   <div
                     class="react-select__control css-1ard45z-control"
                   >
@@ -704,7 +734,7 @@ exports[`renders an temporal widget edit component with existing temporal ranges
 exports[`renders an temporal widget edit component with existing temporal ranges ignoring value already present 1`] = `
 <div>
   <div
-    class="inline field temporal-field-wrapper"
+    class="inline field temporal-field-wrapper field-wrapper-temporal"
   >
     <div
       class="ui grid"
@@ -742,6 +772,12 @@ exports[`renders an temporal widget edit component with existing temporal ranges
                   class="react-select-container css-2b097c-container"
                   id="temporal"
                 >
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                  />
                   <div
                     class="react-select__control css-1ard45z-control"
                   >
@@ -855,7 +891,7 @@ exports[`renders an temporal widget edit component with existing temporal ranges
 exports[`renders an temporal widget edit component with joined temporal ranges from existing temporal ranges and new temporal ranges 1`] = `
 <div>
   <div
-    class="inline field temporal-field-wrapper"
+    class="inline field temporal-field-wrapper field-wrapper-temporal"
   >
     <div
       class="ui grid"
@@ -893,6 +929,12 @@ exports[`renders an temporal widget edit component with joined temporal ranges f
                   class="react-select-container css-2b097c-container"
                   id="temporal"
                 >
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                  />
                   <div
                     class="react-select__control css-1ard45z-control"
                   >
@@ -1006,7 +1048,7 @@ exports[`renders an temporal widget edit component with joined temporal ranges f
 exports[`renders an temporal widget edit component with multiple ranges and single values 1`] = `
 <div>
   <div
-    class="inline field temporal-field-wrapper"
+    class="inline field temporal-field-wrapper field-wrapper-temporal"
   >
     <div
       class="ui grid"
@@ -1044,6 +1086,12 @@ exports[`renders an temporal widget edit component with multiple ranges and sing
                   class="react-select-container css-2b097c-container"
                   id="temporal"
                 >
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                  />
                   <div
                     class="react-select__control css-1ard45z-control"
                   >
@@ -1217,7 +1265,7 @@ exports[`renders an temporal widget edit component with multiple ranges and sing
 exports[`renders an temporal widget edit component with ranges 1`] = `
 <div>
   <div
-    class="inline field temporal-field-wrapper"
+    class="inline field temporal-field-wrapper field-wrapper-temporal"
   >
     <div
       class="ui grid"
@@ -1255,6 +1303,12 @@ exports[`renders an temporal widget edit component with ranges 1`] = `
                   class="react-select-container css-2b097c-container"
                   id="temporal"
                 >
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                  />
                   <div
                     class="react-select__control css-1ard45z-control"
                   >
@@ -1368,7 +1422,7 @@ exports[`renders an temporal widget edit component with ranges 1`] = `
 exports[`renders an temporal widget edit component with ranges and single values 1`] = `
 <div>
   <div
-    class="inline field temporal-field-wrapper"
+    class="inline field temporal-field-wrapper field-wrapper-temporal"
   >
     <div
       class="ui grid"
@@ -1406,6 +1460,12 @@ exports[`renders an temporal widget edit component with ranges and single values
                   class="react-select-container css-2b097c-container"
                   id="temporal"
                 >
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                  />
                   <div
                     class="react-select__control css-1ard45z-control"
                   >
@@ -1579,7 +1639,7 @@ exports[`renders an temporal widget edit component with ranges and single values
 exports[`renders an temporal widget edit component with ranges and single values 2`] = `
 <div>
   <div
-    class="inline field temporal-field-wrapper"
+    class="inline field temporal-field-wrapper field-wrapper-temporal"
   >
     <div
       class="ui grid"
@@ -1617,6 +1677,12 @@ exports[`renders an temporal widget edit component with ranges and single values
                   class="react-select-container css-2b097c-container"
                   id="temporal"
                 >
+                  <span
+                    aria-atomic="false"
+                    aria-live="polite"
+                    aria-relevant="additions text"
+                    class="css-1f43avz-a11yText-A11yText"
+                  />
                   <div
                     class="react-select__control css-1ard45z-control"
                   >
