@@ -9,7 +9,7 @@ import './public.less';
 
 const TemporalWidget = ({ value, children, className }) => {
   const temporal_ranges = createTemporalRangeOptions(
-    getIndividualValues(value),
+    getIndividualValues(value?.temporal || []),
   );
   return temporal_ranges.length ? (
     <div className={cx(className, 'temporal-coverage', 'widget')}>

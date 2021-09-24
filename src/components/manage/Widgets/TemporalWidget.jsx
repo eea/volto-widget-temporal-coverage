@@ -17,6 +17,8 @@ import {
   createOption,
 } from '@eeacms/volto-widget-temporal-coverage/helpers';
 
+import { TemporalWidgetView } from '@eeacms/volto-widget-temporal-coverage/components';
+
 import './public.less';
 
 const messages = defineMessages({
@@ -59,7 +61,7 @@ const TemporalWidget = (props) => {
     value,
     intl,
     id = 'select-temporal-coverage',
-    title = 'temporal coverage',
+    title = 'Temporal coverage',
   } = props;
 
   const [currentInputValue, setCurrentInputValue] = React.useState('');
@@ -89,82 +91,91 @@ const TemporalWidget = (props) => {
             </div>
           </Grid.Column>
           <Grid.Column width="8" style={{ flexDirection: 'unset' }}>
-            <CreatableSelect
-              defaultValue={temporalRangeOptions}
-              isMulti
-              allowCreateWhileLoading={true}
-              id={id}
-              inputValue={currentInputValue}
-              name="select-temporal-coverage"
-              className="react-select-container"
-              classNamePrefix="react-select"
-              options={[
-                {
-                  label: intl.formatMessage(messages.NoSelection),
-                  value: '',
-                },
-              ]}
-              onInputChange={(newInputValue) => {
-                if (!newInputValue) {
-                  return setCurrentInputValue(newInputValue);
-                }
-                let new_input_length = newInputValue.length;
-                let last_char = newInputValue[new_input_length - 1];
-                // dissallow non numeric values and allow - only as 5th char
-                if (
-                  (last_char === '-' && new_input_length !== 5) ||
-                  (['-', '0'].indexOf(last_char) === -1 && !parseInt(last_char))
-                ) {
-                  return currentInputValue;
-                }
+            {value?.readOnly ? (
+              <TemporalWidgetView value={value} className="read-only" />
+            ) : (
+              <CreatableSelect
+                defaultValue={temporalRangeOptions}
+                isMulti
+                allowCreateWhileLoading={true}
+                id={id}
+                inputValue={currentInputValue}
+                name="select-temporal-coverage"
+                className="react-select-container"
+                classNamePrefix="react-select"
+                options={[
+                  {
+                    label: intl.formatMessage(messages.NoSelection),
+                    value: '',
+                  },
+                ]}
+                onInputChange={(newInputValue) => {
+                  if (!newInputValue) {
+                    return setCurrentInputValue(newInputValue);
+                  }
+                  let new_input_length = newInputValue.length;
+                  let last_char = newInputValue[new_input_length - 1];
+                  // dissallow non numeric values and allow - only as 5th char
+                  if (
+                    (last_char === '-' && new_input_length !== 5) ||
+                    (['-', '0'].indexOf(last_char) === -1 &&
+                      !parseInt(last_char))
+                  ) {
+                    return currentInputValue;
+                  }
 
-                if (
-                  new_input_length === 5 &&
-                  new_input_length > currentInputValue.length &&
-                  newInputValue[4] !== '-'
-                ) {
-                  newInputValue =
-                    newInputValue.slice(0, 4) + '-' + newInputValue.slice(4, 5);
-                }
-                if (new_input_length <= 9) {
-                  return setCurrentInputValue(newInputValue);
-                }
+                  if (
+                    new_input_length === 5 &&
+                    new_input_length > currentInputValue.length &&
+                    newInputValue[4] !== '-'
+                  ) {
+                    newInputValue =
+                      newInputValue.slice(0, 4) +
+                      '-' +
+                      newInputValue.slice(4, 5);
+                  }
+                  if (new_input_length <= 9) {
+                    return setCurrentInputValue(newInputValue);
+                  }
 
-                return setCurrentInputValue(newInputValue);
-              }}
-              isValidNewOption={(inputValue) => {
-                let new_option = inputValue.split('-');
-                // allow only ranges when second value is higher
-                if (new_option.length === 2) {
-                  let first_value = parseInt(new_option[0]);
-                  let second_value = parseInt(new_option[1]);
-                  return first_value < second_value;
-                }
-                return /^\d+$/.test(parseInt(inputValue.split('-')[0]));
-              }}
-              onCreateOption={(newOption) => {
-                let temporal_values = addTemporalValues(
-                  getIndividualValues(value.temporal),
-                  newOption,
-                );
-                onChange(
-                  id,
-                  newOption === '' ? undefined : { temporal: temporal_values },
-                );
-              }}
-              value={temporalRangeOptions}
-              styles={customSelectStyles}
-              theme={selectTheme}
-              components={{ DropdownIndicator, Option }}
-              onChange={(values) => {
-                let temporal_values =
-                  (value.length && getIndividualValues(values)) || values;
-                onChange(
-                  id,
-                  value === '' ? undefined : { temporal: temporal_values },
-                );
-              }}
-            />
+                  return setCurrentInputValue(newInputValue);
+                }}
+                isValidNewOption={(inputValue) => {
+                  let new_option = inputValue.split('-');
+                  // allow only ranges when second value is higher
+                  if (new_option.length === 2) {
+                    let first_value = parseInt(new_option[0]);
+                    let second_value = parseInt(new_option[1]);
+                    return first_value < second_value;
+                  }
+                  return /^\d+$/.test(parseInt(inputValue.split('-')[0]));
+                }}
+                onCreateOption={(newOption) => {
+                  let temporal_values = addTemporalValues(
+                    getIndividualValues(value.temporal),
+                    newOption,
+                  );
+                  onChange(
+                    id,
+                    newOption === ''
+                      ? undefined
+                      : { temporal: temporal_values },
+                  );
+                }}
+                value={temporalRangeOptions}
+                styles={customSelectStyles}
+                theme={selectTheme}
+                components={{ DropdownIndicator, Option }}
+                onChange={(values) => {
+                  let temporal_values =
+                    (value.length && getIndividualValues(values)) || values;
+                  onChange(
+                    id,
+                    value === '' ? undefined : { temporal: temporal_values },
+                  );
+                }}
+              />
+            )}
           </Grid.Column>
         </Grid.Row>
       </Grid>
