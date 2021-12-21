@@ -227,7 +227,7 @@ exports[`renders an temporal widget edit component 1`] = `
                     >
                       <div
                         aria-hidden="true"
-                        class="react-select__indicator react-select__clear-indicator css-tlfecz-indicatorContainer"
+                        class="react-select__indicator react-select__clear-indicator css-1v154vq-ClearIndicator"
                       >
                         <svg
                           aria-hidden="true"
@@ -672,7 +672,7 @@ exports[`renders an temporal widget edit component with existing temporal ranges
                     >
                       <div
                         aria-hidden="true"
-                        class="react-select__indicator react-select__clear-indicator css-tlfecz-indicatorContainer"
+                        class="react-select__indicator react-select__clear-indicator css-1v154vq-ClearIndicator"
                       >
                         <svg
                           aria-hidden="true"
@@ -839,7 +839,7 @@ exports[`renders an temporal widget edit component with existing temporal ranges
                     >
                       <div
                         aria-hidden="true"
-                        class="react-select__indicator react-select__clear-indicator css-tlfecz-indicatorContainer"
+                        class="react-select__indicator react-select__clear-indicator css-1v154vq-ClearIndicator"
                       >
                         <svg
                           aria-hidden="true"
@@ -996,7 +996,7 @@ exports[`renders an temporal widget edit component with joined temporal ranges f
                     >
                       <div
                         aria-hidden="true"
-                        class="react-select__indicator react-select__clear-indicator css-tlfecz-indicatorContainer"
+                        class="react-select__indicator react-select__clear-indicator css-1v154vq-ClearIndicator"
                       >
                         <svg
                           aria-hidden="true"
@@ -1203,7 +1203,7 @@ exports[`renders an temporal widget edit component with multiple ranges and sing
                     >
                       <div
                         aria-hidden="true"
-                        class="react-select__indicator react-select__clear-indicator css-tlfecz-indicatorContainer"
+                        class="react-select__indicator react-select__clear-indicator css-1v154vq-ClearIndicator"
                       >
                         <svg
                           aria-hidden="true"
@@ -1370,7 +1370,7 @@ exports[`renders an temporal widget edit component with ranges 1`] = `
                     >
                       <div
                         aria-hidden="true"
-                        class="react-select__indicator react-select__clear-indicator css-tlfecz-indicatorContainer"
+                        class="react-select__indicator react-select__clear-indicator css-1v154vq-ClearIndicator"
                       >
                         <svg
                           aria-hidden="true"
@@ -1577,7 +1577,7 @@ exports[`renders an temporal widget edit component with ranges and single values
                     >
                       <div
                         aria-hidden="true"
-                        class="react-select__indicator react-select__clear-indicator css-tlfecz-indicatorContainer"
+                        class="react-select__indicator react-select__clear-indicator css-1v154vq-ClearIndicator"
                       >
                         <svg
                           aria-hidden="true"
@@ -1794,7 +1794,7 @@ exports[`renders an temporal widget edit component with ranges and single values
                     >
                       <div
                         aria-hidden="true"
-                        class="react-select__indicator react-select__clear-indicator css-tlfecz-indicatorContainer"
+                        class="react-select__indicator react-select__clear-indicator css-1v154vq-ClearIndicator"
                       >
                         <svg
                           aria-hidden="true"
