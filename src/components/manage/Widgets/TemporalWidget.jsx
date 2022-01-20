@@ -66,12 +66,13 @@ const TemporalWidget = (props) => {
 
   const [currentInputValue, setCurrentInputValue] = React.useState('');
   const [temporalRangeOptions, setTemporalRangeOptions] = React.useState([]);
+  const temporal = value?.temporal;
 
   useEffect(() => {
     setTemporalRangeOptions(
-      createTemporalRangeOptions(getIndividualValues(value.temporal)),
+      createTemporalRangeOptions(getIndividualValues(temporal)),
     );
-  }, [value.temporal]);
+  }, [temporal]);
 
   return (
     <FormFieldWrapper
@@ -152,7 +153,7 @@ const TemporalWidget = (props) => {
                 }}
                 onCreateOption={(newOption) => {
                   let temporal_values = addTemporalValues(
-                    getIndividualValues(value.temporal),
+                    getIndividualValues(value?.temporal),
                     newOption,
                   );
                   onChange(
