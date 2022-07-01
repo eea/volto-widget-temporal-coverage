@@ -89,17 +89,6 @@ exports[`renders an empty temporal widget edit component when temporal is missin
                       <span
                         class="react-select__indicator-separator css-6fp5c8-indicatorSeparator"
                       />
-                      <div
-                        aria-hidden="true"
-                        class="react-select__indicator react-select__dropdown-indicator css-7hdh9a-DropdownIndicator"
-                      >
-                        <svg
-                          class="icon"
-                          style="height: 24px; width: auto; fill: #007bc1;"
-                          viewBox=""
-                          xmlns=""
-                        />
-                      </div>
                     </div>
                   </div>
                   <div>
@@ -245,17 +234,6 @@ exports[`renders an temporal widget edit component 1`] = `
                       <span
                         class="react-select__indicator-separator css-6fp5c8-indicatorSeparator"
                       />
-                      <div
-                        aria-hidden="true"
-                        class="react-select__indicator react-select__dropdown-indicator css-7hdh9a-DropdownIndicator"
-                      >
-                        <svg
-                          class="icon"
-                          style="height: 24px; width: auto; fill: #007bc1;"
-                          viewBox=""
-                          xmlns=""
-                        />
-                      </div>
                     </div>
                   </div>
                   <div>
@@ -365,17 +343,6 @@ exports[`renders an temporal widget edit component when temporal is an empty lis
                       <span
                         class="react-select__indicator-separator css-6fp5c8-indicatorSeparator"
                       />
-                      <div
-                        aria-hidden="true"
-                        class="react-select__indicator react-select__dropdown-indicator css-7hdh9a-DropdownIndicator"
-                      >
-                        <svg
-                          class="icon"
-                          style="height: 24px; width: auto; fill: #007bc1;"
-                          viewBox=""
-                          xmlns=""
-                        />
-                      </div>
                     </div>
                   </div>
                   <div>
@@ -484,17 +451,6 @@ exports[`renders an temporal widget edit component when temporal is null 1`] = `
                       <span
                         class="react-select__indicator-separator css-6fp5c8-indicatorSeparator"
                       />
-                      <div
-                        aria-hidden="true"
-                        class="react-select__indicator react-select__dropdown-indicator css-7hdh9a-DropdownIndicator"
-                      >
-                        <svg
-                          class="icon"
-                          style="height: 24px; width: auto; fill: #007bc1;"
-                          viewBox=""
-                          xmlns=""
-                        />
-                      </div>
                     </div>
                   </div>
                   <div>
@@ -690,17 +646,6 @@ exports[`renders an temporal widget edit component with existing temporal ranges
                       <span
                         class="react-select__indicator-separator css-6fp5c8-indicatorSeparator"
                       />
-                      <div
-                        aria-hidden="true"
-                        class="react-select__indicator react-select__dropdown-indicator css-7hdh9a-DropdownIndicator"
-                      >
-                        <svg
-                          class="icon"
-                          style="height: 24px; width: auto; fill: #007bc1;"
-                          viewBox=""
-                          xmlns=""
-                        />
-                      </div>
                     </div>
                   </div>
                   <div>
@@ -857,17 +802,6 @@ exports[`renders an temporal widget edit component with existing temporal ranges
                       <span
                         class="react-select__indicator-separator css-6fp5c8-indicatorSeparator"
                       />
-                      <div
-                        aria-hidden="true"
-                        class="react-select__indicator react-select__dropdown-indicator css-7hdh9a-DropdownIndicator"
-                      >
-                        <svg
-                          class="icon"
-                          style="height: 24px; width: auto; fill: #007bc1;"
-                          viewBox=""
-                          xmlns=""
-                        />
-                      </div>
                     </div>
                   </div>
                   <div>
@@ -1014,17 +948,6 @@ exports[`renders an temporal widget edit component with joined temporal ranges f
                       <span
                         class="react-select__indicator-separator css-6fp5c8-indicatorSeparator"
                       />
-                      <div
-                        aria-hidden="true"
-                        class="react-select__indicator react-select__dropdown-indicator css-7hdh9a-DropdownIndicator"
-                      >
-                        <svg
-                          class="icon"
-                          style="height: 24px; width: auto; fill: #007bc1;"
-                          viewBox=""
-                          xmlns=""
-                        />
-                      </div>
                     </div>
                   </div>
                   <div>
@@ -1221,17 +1144,6 @@ exports[`renders an temporal widget edit component with multiple ranges and sing
                       <span
                         class="react-select__indicator-separator css-6fp5c8-indicatorSeparator"
                       />
-                      <div
-                        aria-hidden="true"
-                        class="react-select__indicator react-select__dropdown-indicator css-7hdh9a-DropdownIndicator"
-                      >
-                        <svg
-                          class="icon"
-                          style="height: 24px; width: auto; fill: #007bc1;"
-                          viewBox=""
-                          xmlns=""
-                        />
-                      </div>
                     </div>
                   </div>
                   <div>
@@ -1388,17 +1300,6 @@ exports[`renders an temporal widget edit component with ranges 1`] = `
                       <span
                         class="react-select__indicator-separator css-6fp5c8-indicatorSeparator"
                       />
-                      <div
-                        aria-hidden="true"
-                        class="react-select__indicator react-select__dropdown-indicator css-7hdh9a-DropdownIndicator"
-                      >
-                        <svg
-                          class="icon"
-                          style="height: 24px; width: auto; fill: #007bc1;"
-                          viewBox=""
-                          xmlns=""
-                        />
-                      </div>
                     </div>
                   </div>
                   <div>
@@ -1595,17 +1496,6 @@ exports[`renders an temporal widget edit component with ranges and single values
                       <span
                         class="react-select__indicator-separator css-6fp5c8-indicatorSeparator"
                       />
-                      <div
-                        aria-hidden="true"
-                        class="react-select__indicator react-select__dropdown-indicator css-7hdh9a-DropdownIndicator"
-                      >
-                        <svg
-                          class="icon"
-                          style="height: 24px; width: auto; fill: #007bc1;"
-                          viewBox=""
-                          xmlns=""
-                        />
-                      </div>
                     </div>
                   </div>
                   <div>
@@ -1812,17 +1702,6 @@ exports[`renders an temporal widget edit component with ranges and single values
                       <span
                         class="react-select__indicator-separator css-6fp5c8-indicatorSeparator"
                       />
-                      <div
-                        aria-hidden="true"
-                        class="react-select__indicator react-select__dropdown-indicator css-7hdh9a-DropdownIndicator"
-                      >
-                        <svg
-                          class="icon"
-                          style="height: 24px; width: auto; fill: #007bc1;"
-                          viewBox=""
-                          xmlns=""
-                        />
-                      </div>
                     </div>
                   </div>
                   <div>
