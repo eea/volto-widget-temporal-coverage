@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders an empty temporal widget edit component when temporal is missing 1`] = `
+exports[`TemporalWidget renders an empty temporal widget edit component when temporal is missing 1`] = `
 <div>
   <div
     class="inline field temporal-field-wrapper field-wrapper-temporal"
@@ -108,7 +108,7 @@ exports[`renders an empty temporal widget edit component when temporal is missin
 </div>
 `;
 
-exports[`renders an temporal widget edit component 1`] = `
+exports[`TemporalWidget renders an temporal widget edit component 1`] = `
 <div>
   <div
     class="inline field temporal-field-wrapper field-wrapper-temporal"
@@ -254,7 +254,7 @@ exports[`renders an temporal widget edit component 1`] = `
 </div>
 `;
 
-exports[`renders an temporal widget edit component when temporal is an empty list 1`] = `
+exports[`TemporalWidget renders an temporal widget edit component when temporal is an empty list 1`] = `
 <div>
   <div
     class="inline field temporal-field-wrapper field-wrapper-temporal"
@@ -362,7 +362,7 @@ exports[`renders an temporal widget edit component when temporal is an empty lis
 </div>
 `;
 
-exports[`renders an temporal widget edit component when temporal is null 1`] = `
+exports[`TemporalWidget renders an temporal widget edit component when temporal is null 1`] = `
 <div>
   <div
     class="inline field temporal-field-wrapper field-wrapper-temporal"
@@ -470,7 +470,7 @@ exports[`renders an temporal widget edit component when temporal is null 1`] = `
 </div>
 `;
 
-exports[`renders an temporal widget edit component with existing temporal ranges and single values 1`] = `
+exports[`TemporalWidget renders an temporal widget edit component with existing temporal ranges and single values 1`] = `
 <div>
   <div
     class="inline field temporal-field-wrapper field-wrapper-temporal"
@@ -676,7 +676,7 @@ exports[`renders an temporal widget edit component with existing temporal ranges
 </div>
 `;
 
-exports[`renders an temporal widget edit component with existing temporal ranges ignoring value already present 1`] = `
+exports[`TemporalWidget renders an temporal widget edit component with existing temporal ranges ignoring value already present 1`] = `
 <div>
   <div
     class="inline field temporal-field-wrapper field-wrapper-temporal"
@@ -822,7 +822,7 @@ exports[`renders an temporal widget edit component with existing temporal ranges
 </div>
 `;
 
-exports[`renders an temporal widget edit component with joined temporal ranges from existing temporal ranges and new temporal ranges 1`] = `
+exports[`TemporalWidget renders an temporal widget edit component with joined temporal ranges from existing temporal ranges and new temporal ranges 1`] = `
 <div>
   <div
     class="inline field temporal-field-wrapper field-wrapper-temporal"
@@ -968,7 +968,7 @@ exports[`renders an temporal widget edit component with joined temporal ranges f
 </div>
 `;
 
-exports[`renders an temporal widget edit component with multiple ranges and single values 1`] = `
+exports[`TemporalWidget renders an temporal widget edit component with multiple ranges and single values 1`] = `
 <div>
   <div
     class="inline field temporal-field-wrapper field-wrapper-temporal"
@@ -1174,7 +1174,7 @@ exports[`renders an temporal widget edit component with multiple ranges and sing
 </div>
 `;
 
-exports[`renders an temporal widget edit component with ranges 1`] = `
+exports[`TemporalWidget renders an temporal widget edit component with ranges 1`] = `
 <div>
   <div
     class="inline field temporal-field-wrapper field-wrapper-temporal"
@@ -1320,7 +1320,7 @@ exports[`renders an temporal widget edit component with ranges 1`] = `
 </div>
 `;
 
-exports[`renders an temporal widget edit component with ranges and single values 1`] = `
+exports[`TemporalWidget renders an temporal widget edit component with ranges and single values 1`] = `
 <div>
   <div
     class="inline field temporal-field-wrapper field-wrapper-temporal"
@@ -1526,7 +1526,7 @@ exports[`renders an temporal widget edit component with ranges and single values
 </div>
 `;
 
-exports[`renders an temporal widget edit component with ranges and single values 2`] = `
+exports[`TemporalWidget renders an temporal widget edit component with ranges and single values 2`] = `
 <div>
   <div
     class="inline field temporal-field-wrapper field-wrapper-temporal"
