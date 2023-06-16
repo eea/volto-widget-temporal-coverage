@@ -83,6 +83,6 @@ export function getIndividualValues(values) {
       }
     }
   }
-  year_values.sort();
+  year_values.sort((a, b) => a - b);
   return year_values.map((year) => createOption(year));
 }
