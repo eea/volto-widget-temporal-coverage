@@ -14,41 +14,58 @@
 [![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage-develop&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage-develop)
 [![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage-develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage-develop)
 
-[Volto](https://github.com/plone/volto) Widget: Temporal Coverage
+[Volto](https://github.com/plone/volto) add-on
 
 ## Features
 
-![Widget Temporal coverage](https://github.com/eea/volto-widget-temporal-coverage/raw/docs/docs/volto-widget-temporal-coverage.gif)
+![Widget Temporal coverage](https://raw.githubusercontent.com/eea/volto-widget-temporal-coverage/master/docs/volto-widget-temporal-coverage.gif)
 
 ## Getting started
 
-1. Create new volto project if you don't already have one:
+### Try volto-widget-temporal-coverage with Docker
 
+      git clone https://github.com/eea/volto-widget-temporal-coverage.git
+      cd volto-widget-temporal-coverage
+      make
+      make start
+
+Go to http://localhost:3000
+
+### Add volto-widget-temporal-coverage to your Volto project
+
+1. Make sure you have a [Plone backend](https://plone.org/download) up-and-running at http://localhost:8080/Plone
+
+   ```Bash
+   docker compose up backend
    ```
-   $ npm install -g yo @plone/generator-volto
-   $ yo @plone/volto my-volto-project --addon @eeacms/volto-widget-temporal-coverage
 
-   $ cd my-volto-project
-   $ yarn add -W @eeacms/volto-widget-temporal-coverage
-   ```
+1. Start Volto frontend
 
-1. If you already have a volto project, just update `package.json`:
+- If you already have a volto project, just update `package.json`:
 
-   ```JSON
-   "addons": [
-       "@eeacms/volto-widget-temporal-coverage"
-   ],
+  ```JSON
+  "addons": [
+      "@eeacms/volto-widget-temporal-coverage"
+  ],
 
-   "dependencies": {
-       "@eeacms/volto-widget-temporal-coverage": "^2.0.0"
-   }
-   ```
+  "dependencies": {
+      "@eeacms/volto-widget-temporal-coverage": "*"
+  }
+  ```
+
+- If not, create one:
+
+  ```
+  npm install -g yo @plone/generator-volto
+  yo @plone/volto my-volto-project --canary --addon @eeacms/volto-widget-temporal-coverage
+  cd my-volto-project
+  ```
 
 1. Install new add-ons and restart Volto:
 
    ```
-   $ yarn
-   $ yarn start
+   yarn
+   yarn start
    ```
 
 1. Go to http://localhost:3000
