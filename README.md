@@ -18,7 +18,7 @@
 
 ## Features
 
-![Widget Temporal coverage](https://github.com/eea/volto-widget-temporal-coverage/raw/master/docs/volto-widget-temporal-coverage.gif)
+![Widget Temporal coverage](https://raw.githubusercontent.com/eea/volto-widget-temporal-coverage/master/docs/volto-widget-temporal-coverage.gif)
 
 ## Getting started
 
