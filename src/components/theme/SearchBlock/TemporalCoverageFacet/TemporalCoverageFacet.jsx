@@ -24,7 +24,7 @@ const sliderStyle = {
   width: '100%',
 };
 
-const TemporalCoverage = (props) => {
+const TemporalCoverageFacet = (props) => {
   const { facet, onChange, choices } = props;
   const { start, end } = getRangeStartEnd(choices);
   const [startValue, setStartValue] = useState(start);
@@ -120,11 +120,11 @@ const TemporalCoverage = (props) => {
   );
 };
 
-TemporalCoverage.stateToValue = ({ facetSettings, index, selectedValue }) => {
+TemporalCoverageFacet.stateToValue = ({ facetSettings, index, selectedValue }) => {
   return selectedValue || [null, null];
 };
 
-TemporalCoverage.valueToQuery = ({ value, facet }) => {
+TemporalCoverageFacet.valueToQuery = ({ value, facet }) => {
   let years = Array.from({ length: value?.[1] - value?.[0] + 1 }, (_, index) =>
     (value?.[0] + index).toString(),
   );
@@ -138,4 +138,4 @@ TemporalCoverage.valueToQuery = ({ value, facet }) => {
     : null;
 };
 
-export default TemporalCoverage;
+export default TemporalCoverageFacet;
