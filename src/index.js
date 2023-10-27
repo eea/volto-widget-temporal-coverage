@@ -1,5 +1,5 @@
 import { TemporalWidgetEdit, TemporalWidgetView } from './components';
-import TemporalCoverage from '@eeacms/volto-widget-temporal-coverage/components/theme/SearchBlock/TemporalCoverageFacet/TemporalCoverageFacet';
+import TemporalCoverageFacet from '@eeacms/volto-widget-temporal-coverage/components/theme/SearchBlock/TemporalCoverageFacet/TemporalCoverageFacet';
 import TemporalCoverageFacetFilterListEntry from '@eeacms/volto-widget-temporal-coverage/components/theme/SearchBlock/TemporalCoverageFacet/TemporalCoverageFacetFilterListEntry';
 
 const applyConfig = (config) => {
@@ -17,10 +17,10 @@ const applyConfig = (config) => {
       {
         id: 'time_covereage',
         title: 'Temporal Coverage',
-        view: TemporalCoverage,
+        view: TemporalCoverageFacet,
         isDefault: false,
-        stateToValue: TemporalCoverage.stateToValue,
-        valueToQuery: TemporalCoverage.valueToQuery,
+        stateToValue: TemporalCoverageFacet.stateToValue,
+        valueToQuery: TemporalCoverageFacet.valueToQuery,
         filterListComponent: TemporalCoverageFacetFilterListEntry,
       },
     ];
