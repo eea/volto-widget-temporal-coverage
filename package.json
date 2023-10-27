@@ -24,6 +24,9 @@
     "lint-staged": "^14.0.1",
     "md5": "^2.3.0"
   },
+  "dependencies":{
+    "react-compound-slider": "^3.4.0"
+  },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json}": [
       "make lint-fix",
