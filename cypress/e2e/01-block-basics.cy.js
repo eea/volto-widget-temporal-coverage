@@ -23,8 +23,11 @@ describe('Blocks Tests', () => {
     // add temporal coverage facet
     cy.get('#blockform-fieldset-facets').click();
     cy.get('[aria-label="Add Facet"]').click();
+
     cy.get('#field-type-2-facets-0').click();
     cy.get('.react-select__menu').contains('Temporal Coverage').click();
+    cy.get('.years-input').get('input').first().type(2000);
+    cy.get('.years-input').get('.right input').type(2000);
     // Save
     cy.get('#toolbar-save').click();
     cy.url().should('eq', Cypress.config().baseUrl + '/cypress/my-page');
