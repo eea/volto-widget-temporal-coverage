@@ -15,7 +15,7 @@ const applyConfig = (config) => {
     config.blocks.blocksConfig.search.extensions.facetWidgets.types = [
       ...config.blocks.blocksConfig.search.extensions.facetWidgets.types,
       {
-        id: 'time_covereage',
+        id: 'time_coverage',
         title: 'Temporal Coverage',
         view: TemporalCoverageFacet,
         isDefault: false,

@@ -39,7 +39,7 @@ const TemporalCoverageFacet = (props) => {
           value={startValue}
           onChange={(e, { value }) => {
             setStartValue(value);
-            onChange(facet.field.value, [parseInt(value), endValue]);
+            onChange(facet?.field?.value, [parseInt(value), endValue]);
           }}
           min={start}
           max={end}
@@ -50,7 +50,7 @@ const TemporalCoverageFacet = (props) => {
           value={endValue}
           onChange={(e, { value }) => {
             setEndValue(value);
-            onChange(facet.field.value, [startValue, parseInt(value)]);
+            onChange(facet?.field?.value, [startValue, parseInt(value)]);
           }}
           min={start}
           max={end}
@@ -64,12 +64,12 @@ const TemporalCoverageFacet = (props) => {
         onUpdate={(e) => {
           setStartValue(e?.[0]);
           setEndValue(e?.[1]);
-          onChange(facet.field.value, e);
+          onChange(facet?.field?.value, e);
         }}
         onChange={(e) => {
           setStartValue(e?.[0]);
           setEndValue(e?.[1]);
-          onChange(facet.field.value, e);
+          onChange(facet?.field?.value, e);
         }}
         values={[startValue, endValue]}
       >
@@ -120,7 +120,11 @@ const TemporalCoverageFacet = (props) => {
   );
 };
 
-TemporalCoverageFacet.stateToValue = ({ facetSettings, index, selectedValue }) => {
+TemporalCoverageFacet.stateToValue = ({
+  facetSettings,
+  index,
+  selectedValue,
+}) => {
   return selectedValue || [null, null];
 };
 
@@ -131,7 +135,7 @@ TemporalCoverageFacet.valueToQuery = ({ value, facet }) => {
 
   return value
     ? {
-        i: facet.field.value,
+        i: facet?.field?.value,
         o: 'plone.app.querystring.operation.list.contains',
         v: years,
       }
