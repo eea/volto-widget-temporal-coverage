@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import TemporalCoverageFacetFilterListEntry from './TemporalCoverageFacetFilterListEntry';
 import { Tick } from './SliderComponents';
 import { Ticks } from 'react-compound-slider';
+import TemporalCoverageFacet from './TemporalCoverageFacet';
 const mockStore = configureStore([thunk]);
 
 it('renders TemporalCoverageFacetFilterListEntry', () => {
@@ -34,6 +35,19 @@ it('renders TemporalCoverageFacetFilterListEntry', () => {
     </Provider>,
   );
   expect(component.container).toMatchSnapshot();
+});
+
+it('test valueToQuery facet function', () => {
+  return expect(
+    TemporalCoverageFacet.valueToQuery({
+      value: [2003, 2005],
+      facet: { field: { value: 'temporal' } },
+    }),
+  ).toEqual({
+    i: 'temporal',
+    o: 'plone.app.querystring.operation.list.contains',
+    v: ['2003', '2004', '2005'],
+  });
 });
 
 it('renders Slider Ticks', () => {
