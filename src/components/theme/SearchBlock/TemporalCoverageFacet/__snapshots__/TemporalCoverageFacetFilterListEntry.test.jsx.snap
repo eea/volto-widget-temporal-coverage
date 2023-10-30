@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders an temporal widget edit component with existing temporal ranges and single values 1`] = `
+<div>
+  <div
+    class="ui small label"
+  >
+    No
+    <i
+      aria-hidden="true"
+      class="delete icon"
+    />
+  </div>
+</div>
+`;

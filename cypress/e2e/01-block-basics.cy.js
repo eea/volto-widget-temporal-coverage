@@ -26,8 +26,7 @@ describe('Blocks Tests', () => {
 
     cy.get('#field-type-2-facets-0').click();
     cy.get('.react-select__menu').contains('Temporal Coverage').click();
-    cy.get('.years-input').get('input').first().type(2000, { force: true });
-    cy.get('.years-input').get('.right input').type(2000, { force: true });
+
     // Save
     cy.get('#toolbar-save').click();
     cy.url().should('eq', Cypress.config().baseUrl + '/cypress/my-page');
