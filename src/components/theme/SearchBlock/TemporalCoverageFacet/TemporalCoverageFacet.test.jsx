@@ -23,7 +23,14 @@ it('renders TemporalCoverageFacetFilterListEntry', () => {
 
   const component = render(
     <Provider store={store}>
-      <TemporalCoverageFacetFilterListEntry facets={[]} />
+      <TemporalCoverageFacetFilterListEntry
+        facets={[]}
+        choices={[
+          { value: '1890', label: '1890' },
+          { value: '1900-1905', label: '1900-1905' },
+          { value: '1915', label: '1915' },
+        ]}
+      />
     </Provider>,
   );
   expect(component.container).toMatchSnapshot();
