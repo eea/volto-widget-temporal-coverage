@@ -4,10 +4,11 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-intl-redux';
 import thunk from 'redux-thunk';
 import TemporalCoverageFacetFilterListEntry from './TemporalCoverageFacetFilterListEntry';
-
+import { Tick } from './SliderComponents';
+import { Ticks } from 'react-compound-slider';
 const mockStore = configureStore([thunk]);
 
-it('renders an temporal widget edit component with existing temporal ranges and single values', () => {
+it('renders TemporalCoverageFacetFilterListEntry', () => {
   const store = mockStore({
     intl: {
       locale: 'en',
@@ -24,6 +25,21 @@ it('renders an temporal widget edit component with existing temporal ranges and 
     <Provider store={store}>
       <TemporalCoverageFacetFilterListEntry facets={[]} />
     </Provider>,
+  );
+  expect(component.container).toMatchSnapshot();
+});
+
+it('renders Slider Ticks', () => {
+  const component = render(
+    <Ticks count={5}>
+      {({ ticks }) => (
+        <div className="slider-ticks">
+          {ticks.map((tick) => (
+            <Tick key={tick.id} tick={tick} count={ticks.length} />
+          ))}
+        </div>
+      )}
+    </Ticks>,
   );
   expect(component.container).toMatchSnapshot();
 });
