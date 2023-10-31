@@ -25,7 +25,8 @@ it('renders TemporalCoverageFacetFilterListEntry', () => {
   const component = render(
     <Provider store={store}>
       <TemporalCoverageFacetFilterListEntry
-        facets={[]}
+        facets={{ temporal_coverage: [1890, 1915] }}
+        facet={'temporal_coverage'}
         choices={[
           { value: '1890', label: '1890' },
           { value: '1900-1905', label: '1900-1905' },

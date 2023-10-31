@@ -15,6 +15,7 @@ const messages = defineMessages({
 
 function TemporalCoverageFacetFilterListEntry(props) {
   const { facet, isEditMode, setFacets, facets } = props;
+  console.log({ facets, facet });
   const intl = useIntl();
 
   return (
