@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Slider Ticks 1`] = `
+<div>
+  <div
+    class="slider-ticks"
+  >
+    <div>
+      <div
+        style="position: absolute; margin-top: 17px; width: 1px; height: 5px; background-color: rgb(200, 200, 200); left: 0%;"
+      />
+      <div
+        style="position: absolute; margin-top: 25px; font-size: 10px; text-align: center; margin-left: -8.333333333333334%; width: 16.666666666666668%; left: 0%;"
+      >
+        0
+      </div>
+    </div>
+    <div>
+      <div
+        style="position: absolute; margin-top: 17px; width: 1px; height: 5px; background-color: rgb(200, 200, 200); left: 0.2%;"
+      />
+      <div
+        style="position: absolute; margin-top: 25px; font-size: 10px; text-align: center; margin-left: -8.333333333333334%; width: 16.666666666666668%; left: 0.2%;"
+      >
+        0.2
+      </div>
+    </div>
+    <div>
+      <div
+        style="position: absolute; margin-top: 17px; width: 1px; height: 5px; background-color: rgb(200, 200, 200); left: 0.4%;"
+      />
+      <div
+        style="position: absolute; margin-top: 25px; font-size: 10px; text-align: center; margin-left: -8.333333333333334%; width: 16.666666666666668%; left: 0.4%;"
+      >
+        0.4
+      </div>
+    </div>
+    <div>
+      <div
+        style="position: absolute; margin-top: 17px; width: 1px; height: 5px; background-color: rgb(200, 200, 200); left: 0.6%;"
+      />
+      <div
+        style="position: absolute; margin-top: 25px; font-size: 10px; text-align: center; margin-left: -8.333333333333334%; width: 16.666666666666668%; left: 0.6%;"
+      >
+        0.6
+      </div>
+    </div>
+    <div>
+      <div
+        style="position: absolute; margin-top: 17px; width: 1px; height: 5px; background-color: rgb(200, 200, 200); left: 0.8%;"
+      />
+      <div
+        style="position: absolute; margin-top: 25px; font-size: 10px; text-align: center; margin-left: -8.333333333333334%; width: 16.666666666666668%; left: 0.8%;"
+      >
+        0.8
+      </div>
+    </div>
+    <div>
+      <div
+        style="position: absolute; margin-top: 17px; width: 1px; height: 5px; background-color: rgb(200, 200, 200); left: 1%;"
+      />
+      <div
+        style="position: absolute; margin-top: 25px; font-size: 10px; text-align: center; margin-left: -8.333333333333334%; width: 16.666666666666668%; left: 1%;"
+      >
+        1
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders TemporalCoverageFacetFilterListEntry 1`] = `
+<div>
+  <div
+    class="ui small label"
+  >
+    Yes
+    <i
+      aria-hidden="true"
+      class="delete icon"
+    />
+  </div>
+</div>
+`;
