@@ -10,11 +10,15 @@ const getRangeStartEnd = (range) => {
   return {
     start: Math.min.apply(
       Math,
-      range.map((year) => year.value),
+      range
+        .filter((year) => parseInt(year.value) > 0)
+        .map((year) => parseInt(year.value)),
     ),
     end: Math.max.apply(
       Math,
-      range.map((year) => year.value),
+      range
+        .filter((year) => parseInt(year.value) > 0)
+        .map((year) => parseInt(year.value)),
     ),
   };
 };
