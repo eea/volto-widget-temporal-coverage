@@ -26,8 +26,13 @@ describe('Blocks Tests', () => {
 
     cy.get('#field-type-2-facets-0').click();
     cy.get('.react-select__menu').contains('Temporal Coverage').click();
-    cy.get('.years-input .ui.input').first().click({ force: true }).type(2003);
-    cy.get('.years-input .ui.input.right').click({ force: true }).type(2010);
+    cy.get('.years-input .ui.input input')
+      .first()
+      .click({ force: true })
+      .type(2003, { force: true });
+    cy.get('.years-input .ui.input.right input')
+      .click({ force: true })
+      .type(2010, { force: true });
 
     // Save
     cy.get('#toolbar-save').click();
