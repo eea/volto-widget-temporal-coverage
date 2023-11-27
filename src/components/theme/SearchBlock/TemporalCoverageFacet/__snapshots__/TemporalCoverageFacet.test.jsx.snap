@@ -71,7 +71,7 @@ exports[`renders Slider Ticks 1`] = `
 
 exports[`renders TemporalCoverageFacet 1`] = `
 <div
- class="years-input"
+ class="temporal-facet"
 >
   <div>
     <h4
