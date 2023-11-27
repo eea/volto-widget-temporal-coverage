@@ -1,6 +1,6 @@
 {
   "name": "@eeacms/volto-widget-temporal-coverage",
-  "version": "5.1.5",
+  "version": "5.2.0",
   "description": "volto-widget-temporal-coverage: Volto add-on",
   "main": "src/index.js",
   "author": "European Environment Agency: IDM2 A-Team",
@@ -23,6 +23,9 @@
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "md5": "^2.3.0"
+  },
+  "dependencies": {
+    "react-compound-slider": "^3.4.0"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json}": [
