@@ -70,13 +70,15 @@ exports[`renders Slider Ticks 1`] = `
 `;
 
 exports[`renders TemporalCoverageFacet 1`] = `
-<div>
+<div
+ class="years-input"
+>
   <div>
     <h4
       class="ui header"
     />
     <div
-      class="years-input"
+      class="ui form years-input"
     >
       <div
         class="ui input"
