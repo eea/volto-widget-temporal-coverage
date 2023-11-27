@@ -70,10 +70,10 @@ exports[`renders Slider Ticks 1`] = `
 `;
 
 exports[`renders TemporalCoverageFacet 1`] = `
-<div
- class="temporal-facet"
->
-  <div>
+<div>
+  <div
+    class="temporal-facet"
+  >
     <h4
       class="ui header"
     />
