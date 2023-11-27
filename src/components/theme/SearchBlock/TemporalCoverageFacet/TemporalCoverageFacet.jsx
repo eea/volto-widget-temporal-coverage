@@ -90,9 +90,9 @@ const TemporalCoverageFacet = (props) => {
   }, 300);
 
   return (
-    <div>
+    <div className="temporal-facet">
       <Header as="h4">{facet?.title ?? facet?.field?.label}</Header>
-      <div className="years-input">
+      <div className="ui form years-input">
         <Input
           type="number"
           value={startValue}
