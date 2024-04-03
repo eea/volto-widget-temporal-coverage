@@ -1,8 +1,10 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-intl-redux';
 import thunk from 'redux-thunk';
+import '@testing-library/jest-dom/extend-expect';
+
 import TemporalWidget from './TemporalWidget';
 
 const mockStore = configureStore([thunk]);
@@ -16,7 +18,7 @@ describe('TemporalWidget', () => {
       },
     });
     const state = store.getState();
-    const component = render(
+    render(
       <Provider store={store}>
         <TemporalWidget
           value={state}
@@ -26,7 +28,8 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(component.container).toMatchSnapshot();
+    expect(screen.getByText('Temporal coverage')).toBeInTheDocument();
+    expect(screen.getByText('Select...')).toBeInTheDocument();
   });
 
   it('renders an temporal widget edit component when temporal is null', () => {
@@ -38,7 +41,7 @@ describe('TemporalWidget', () => {
       temporal: null,
     });
     const state = store.getState();
-    const component = render(
+    render(
       <Provider store={store}>
         <TemporalWidget
           value={state}
@@ -48,7 +51,6 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(component.container).toMatchSnapshot();
   });
 
   it('renders an temporal widget edit component when temporal is an empty list', () => {
@@ -60,7 +62,7 @@ describe('TemporalWidget', () => {
       temporal: [],
     });
     const state = store.getState();
-    const component = render(
+    render(
       <Provider store={store}>
         <TemporalWidget
           value={state}
@@ -70,7 +72,6 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(component.container).toMatchSnapshot();
   });
 
   it('renders an temporal widget edit component', () => {
@@ -82,7 +83,7 @@ describe('TemporalWidget', () => {
       temporal: [{ value: '1900', label: '1900' }],
     });
     const state = store.getState();
-    const component = render(
+    render(
       <Provider store={store}>
         <TemporalWidget
           value={state}
@@ -92,7 +93,7 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(component.container).toMatchSnapshot();
+    expect(screen.getByText('1900')).toBeInTheDocument();
   });
 
   it('renders an temporal widget edit component with ranges', () => {
@@ -107,7 +108,7 @@ describe('TemporalWidget', () => {
       ],
     });
     const state = store.getState();
-    const component = render(
+    render(
       <Provider store={store}>
         <TemporalWidget
           value={state}
@@ -117,7 +118,7 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(component.container).toMatchSnapshot();
+    expect(screen.getByText('1900-1901')).toBeInTheDocument();
   });
 
   it('renders an temporal widget edit component with ranges and single values', () => {
@@ -134,7 +135,7 @@ describe('TemporalWidget', () => {
       ],
     });
     const state = store.getState();
-    const component = render(
+    render(
       <Provider store={store}>
         <TemporalWidget
           value={state}
@@ -144,7 +145,9 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(component.container).toMatchSnapshot();
+    expect(screen.getByText('1900-1901')).toBeInTheDocument();
+    expect(screen.getByText('1905')).toBeInTheDocument();
+    expect(screen.getByText('1907')).toBeInTheDocument();
   });
 
   it('renders an temporal widget edit component with ranges and single values', () => {
@@ -161,7 +164,7 @@ describe('TemporalWidget', () => {
       ],
     });
     const state = store.getState();
-    const component = render(
+    render(
       <Provider store={store}>
         <TemporalWidget
           value={state}
@@ -171,7 +174,9 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(component.container).toMatchSnapshot();
+    expect(screen.getByText('1900-1901')).toBeInTheDocument();
+    expect(screen.getByText('1905')).toBeInTheDocument();
+    expect(screen.getByText('1907')).toBeInTheDocument();
   });
 
   it('renders an temporal widget edit component with multiple ranges and single values', () => {
@@ -189,7 +194,7 @@ describe('TemporalWidget', () => {
       ],
     });
     const state = store.getState();
-    const component = render(
+    render(
       <Provider store={store}>
         <TemporalWidget
           value={state}
@@ -199,7 +204,9 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(component.container).toMatchSnapshot();
+    expect(screen.getByText('1900-1901')).toBeInTheDocument();
+    expect(screen.getByText('1905')).toBeInTheDocument();
+    expect(screen.getByText('1907-1908')).toBeInTheDocument();
   });
 
   it('renders an temporal widget edit component with joined temporal ranges from existing temporal ranges and new temporal ranges', () => {
@@ -214,7 +221,7 @@ describe('TemporalWidget', () => {
       ],
     });
     const state = store.getState();
-    const component = render(
+    render(
       <Provider store={store}>
         <TemporalWidget
           value={state}
@@ -224,7 +231,7 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(component.container).toMatchSnapshot();
+    expect(screen.getByText('1898-1905')).toBeInTheDocument();
   });
 
   it('renders an temporal widget edit component with existing temporal ranges and single values', () => {
@@ -240,7 +247,7 @@ describe('TemporalWidget', () => {
       ],
     });
     const state = store.getState();
-    const component = render(
+    render(
       <Provider store={store}>
         <TemporalWidget
           value={state}
@@ -250,7 +257,9 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(component.container).toMatchSnapshot();
+    expect(screen.getByText('1890')).toBeInTheDocument();
+    expect(screen.getByText('1900-1905')).toBeInTheDocument();
+    expect(screen.getByText('1915')).toBeInTheDocument();
   });
 
   it('renders an temporal widget edit component with existing temporal ranges ignoring value already present', () => {
@@ -265,7 +274,7 @@ describe('TemporalWidget', () => {
       ],
     });
     const state = store.getState();
-    const component = render(
+    render(
       <Provider store={store}>
         <TemporalWidget
           value={state}
@@ -275,6 +284,6 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(component.container).toMatchSnapshot();
+    expect(screen.getByText('1900-1905')).toBeInTheDocument();
   });
 });
