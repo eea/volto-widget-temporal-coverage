@@ -1,32 +1,46 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+
 import TemporalWidget from './TemporalWidget';
 
 describe('TemporalWidget view tests', () => {
   it('renders an empty widget when value is an empty list', () => {
-    const component = renderer.create(<TemporalWidget value={{}} />);
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    const { container } = render(<TemporalWidget value={{}} />);
+    expect(
+      container.querySelector('.temporal-coverage.widget'),
+    ).not.toBeInTheDocument();
+    expect(
+      container.querySelector('.temporal-coverage-value'),
+    ).not.toBeInTheDocument();
   });
 
   it('renders an empty widget when value is null', () => {
-    const component = renderer.create(<TemporalWidget value={null} />);
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    const { container } = render(<TemporalWidget value={null} />);
+    expect(
+      container.querySelector('.temporal-coverage.widget'),
+    ).not.toBeInTheDocument();
+    expect(
+      container.querySelector('.temporal-coverage-value'),
+    ).not.toBeInTheDocument();
   });
 
   it('renders a widget when passing a single temporal value', () => {
-    const component = renderer.create(
+    const { container } = render(
       <TemporalWidget
         value={{ temporal: [{ value: '1900', label: '1900' }] }}
       />,
     );
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    expect(
+      container.querySelector('.temporal-coverage.widget'),
+    ).toBeInTheDocument();
+    expect(
+      container.querySelector('.temporal-coverage-value'),
+    ).toHaveTextContent('1900');
   });
 
   it('renders a widget with multiple temporal values', () => {
-    const component = renderer.create(
+    const { container } = render(
       <TemporalWidget
         value={{
           temporal: [
@@ -36,12 +50,16 @@ describe('TemporalWidget view tests', () => {
         }}
       />,
     );
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    expect(
+      container.querySelector('.temporal-coverage.widget'),
+    ).toBeInTheDocument();
+
+    expect(screen.getByText('1900')).toHaveClass('temporal-coverage-value');
+    expect(screen.getByText('1902')).toHaveClass('temporal-coverage-value');
   });
 
   it('renders a widget with temporal ranges', () => {
-    const component = renderer.create(
+    const { container } = render(
       <TemporalWidget
         value={{
           temporal: [
@@ -51,12 +69,16 @@ describe('TemporalWidget view tests', () => {
         }}
       />,
     );
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    expect(
+      container.querySelector('.temporal-coverage.widget'),
+    ).toBeInTheDocument();
+    expect(screen.getByText('1900-1901')).toHaveClass(
+      'temporal-coverage-value',
+    );
   });
 
   it('renders a widget with multiple temporal ranges', () => {
-    const component = renderer.create(
+    const { container } = render(
       <TemporalWidget
         value={{
           temporal: [
@@ -68,12 +90,20 @@ describe('TemporalWidget view tests', () => {
         }}
       />,
     );
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    expect(
+      container.querySelector('.temporal-coverage.widget'),
+    ).toBeInTheDocument();
+
+    expect(screen.getByText('1900-1901')).toHaveClass(
+      'temporal-coverage-value',
+    );
+    expect(screen.getByText('1903-1904')).toHaveClass(
+      'temporal-coverage-value',
+    );
   });
 
   it('renders a widget with temporal ranges and single values', () => {
-    const component = renderer.create(
+    render(
       <TemporalWidget
         value={{
           temporal: [
@@ -85,12 +115,10 @@ describe('TemporalWidget view tests', () => {
         }}
       />,
     );
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
   });
 
   it('renders a widget with existing temporal ranges and single values', () => {
-    const component = renderer.create(
+    const { container } = render(
       <TemporalWidget
         value={{
           temporal: [
@@ -100,12 +128,18 @@ describe('TemporalWidget view tests', () => {
         }}
       />,
     );
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    expect(
+      container.querySelector('.temporal-coverage.widget'),
+    ).toBeInTheDocument();
+
+    expect(screen.getByText('1910')).toHaveClass('temporal-coverage-value');
+    expect(screen.getByText('1900-1904')).toHaveClass(
+      'temporal-coverage-value',
+    );
   });
 
-  it('renders a widget with multiple single values and  multiple temporal ranges', () => {
-    const component = renderer.create(
+  it('renders a widget with multiple single values and multiple temporal ranges', () => {
+    const { container } = render(
       <TemporalWidget
         value={{
           temporal: [
@@ -117,12 +151,22 @@ describe('TemporalWidget view tests', () => {
         }}
       />,
     );
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    expect(
+      container.querySelector('.temporal-coverage.widget'),
+    ).toBeInTheDocument();
+
+    expect(screen.getByText('1890')).toHaveClass('temporal-coverage-value');
+    expect(screen.getByText('1900-1905')).toHaveClass(
+      'temporal-coverage-value',
+    );
+    expect(screen.getByText('1890')).toHaveClass('temporal-coverage-value');
+    expect(screen.getByText('1920-1922')).toHaveClass(
+      'temporal-coverage-value',
+    );
   });
 
   it('renders a widget with multiple single values and temporal ranges where one single value is removed due to the previous range value', () => {
-    const component = renderer.create(
+    const { container } = render(
       <TemporalWidget
         value={{
           temporal: [
@@ -133,23 +177,34 @@ describe('TemporalWidget view tests', () => {
         }}
       />,
     );
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    expect(
+      container.querySelector('.temporal-coverage.widget'),
+    ).toBeInTheDocument();
+
+    expect(screen.getByText('1900-1905')).toHaveClass(
+      'temporal-coverage-value',
+    );
+    expect(screen.queryByText('1904')).not.toBeInTheDocument();
+    expect(screen.queryByText('1907')).toBeInTheDocument();
   });
 
   it('renders a widget with a custom css class', () => {
-    const component = renderer.create(
+    const { container } = render(
       <TemporalWidget
         className="custom-css-class"
         value={{ temporal: [{ value: '1900', label: '1900' }] }}
       />,
     );
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    expect(
+      container.querySelector('.temporal-coverage.widget.custom-css-class'),
+    ).toBeInTheDocument();
+    expect(
+      container.querySelector('.temporal-coverage-value'),
+    ).toHaveTextContent('1900');
   });
 
   it('renders a widget where the values are wrapped by custom child tags', () => {
-    const component = renderer.create(
+    const { container } = render(
       <TemporalWidget
         value={{
           temporal: [
@@ -161,7 +216,8 @@ describe('TemporalWidget view tests', () => {
         {(child) => <strong>{child}</strong>}
       </TemporalWidget>,
     );
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    expect(container.querySelector('strong')).toBeInTheDocument();
+    expect(screen.queryByText(1890)).toBeInTheDocument();
+    expect(screen.queryByText('1900-1905')).toBeInTheDocument();
   });
 });
