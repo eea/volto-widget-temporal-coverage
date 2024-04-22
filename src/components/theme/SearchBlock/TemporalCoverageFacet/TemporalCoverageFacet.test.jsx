@@ -1,12 +1,15 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-intl-redux';
 import thunk from 'redux-thunk';
+import '@testing-library/jest-dom/extend-expect';
+
 import TemporalCoverageFacetFilterListEntry from './TemporalCoverageFacetFilterListEntry';
 import { Tick } from './SliderComponents';
 import { Ticks } from 'react-compound-slider';
 import TemporalCoverageFacet from './TemporalCoverageFacet';
+
 const mockStore = configureStore([thunk]);
 
 it('renders TemporalCoverageFacet', () => {
@@ -22,7 +25,7 @@ it('renders TemporalCoverageFacet', () => {
     ],
   });
 
-  const component = render(
+  const { container } = render(
     <Provider store={store}>
       <TemporalCoverageFacet
         choices={[
@@ -33,8 +36,46 @@ it('renders TemporalCoverageFacet', () => {
       />
     </Provider>,
   );
-  expect(component.container).toMatchSnapshot();
+  expect(
+    container.querySelector('.temporal-facet .ui.form.years-input .ui.input'),
+  ).toBeInTheDocument();
+  expect(
+    container.querySelector(
+      '.temporal-facet .ui.form.years-input .ui.input.right',
+    ),
+  ).toBeInTheDocument();
+
+  expect(
+    container.querySelector('input[max="1915"][min="1890"]'),
+  ).toBeInTheDocument();
+  expect(
+    container.querySelector('.ui.input input[max="1915"][min="1890"]'),
+  ).toHaveValue(1890);
+  expect(
+    container.querySelector('.ui.input.right input[max="1915"][min="1890"]'),
+  ).toHaveValue(1915);
+
+  expect(container.querySelector('.slider-handles')).toBeInTheDocument();
+  expect(
+    container.querySelector(
+      '.slider-handles div[aria-valuemax="1915"][aria-valuemin="1890"][aria-valuenow="1890"][role="slider"]',
+    ),
+  ).toBeInTheDocument();
+  expect(
+    container.querySelector(
+      '.slider-handles div[aria-valuemax="1915"][aria-valuemin="1890"][aria-valuenow="1915"][role="slider"]',
+    ),
+  ).toBeInTheDocument();
+
+  expect(container.querySelector('.slider-ticks')).toBeInTheDocument();
+  expect(screen.getByText(1890)).toHaveStyle('left: 0%');
+  expect(screen.getByText(1895)).toHaveStyle('left: 20%');
+  expect(screen.getByText(1900)).toHaveStyle('left: 40%');
+  expect(screen.getByText(1905)).toHaveStyle('left: 60%');
+  expect(screen.getByText(1910)).toHaveStyle('left: 80%');
+  expect(screen.getByText(1915)).toHaveStyle('left: 100%');
 });
+
 it('renders TemporalCoverageFacetFilterListEntry', () => {
   const store = mockStore({
     intl: {
@@ -48,7 +89,7 @@ it('renders TemporalCoverageFacetFilterListEntry', () => {
     ],
   });
 
-  const component = render(
+  const { container } = render(
     <Provider store={store}>
       <TemporalCoverageFacetFilterListEntry
         facets={{ temporal_coverage: [1890, 1915] }}
@@ -61,7 +102,8 @@ it('renders TemporalCoverageFacetFilterListEntry', () => {
       />
     </Provider>,
   );
-  expect(component.container).toMatchSnapshot();
+  expect(container.querySelector('.ui.small.label > i')).toBeInTheDocument();
+  expect(screen.getByText('Yes')).toBeInTheDocument();
 });
 
 it('test valueToQuery facet function', () => {
@@ -78,7 +120,7 @@ it('test valueToQuery facet function', () => {
 });
 
 it('renders Slider Ticks', () => {
-  const component = render(
+  const { container } = render(
     <Ticks count={5}>
       {({ ticks }) => (
         <div className="slider-ticks">
@@ -89,5 +131,12 @@ it('renders Slider Ticks', () => {
       )}
     </Ticks>,
   );
-  expect(component.container).toMatchSnapshot();
+
+  expect(container.querySelector('.slider-ticks')).toBeInTheDocument();
+  expect(screen.getByText(0)).toHaveStyle('left: 0%');
+  expect(screen.getByText(0.2)).toHaveStyle('left: 0.2%');
+  expect(screen.getByText(0.4)).toHaveStyle('left: 0.4%');
+  expect(screen.getByText(0.6)).toHaveStyle('left: 0.6%');
+  expect(screen.getByText(0.8)).toHaveStyle('left: 0.8%');
+  expect(screen.getByText(1)).toHaveStyle('left: 1%');
 });
