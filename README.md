@@ -3,16 +3,16 @@
 [![Releases](https://img.shields.io/github/v/release/eea/volto-widget-temporal-coverage)](https://github.com/eea/volto-widget-temporal-coverage/releases)
 
 [![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto-addons%2Fvolto-widget-temporal-coverage%2Fmaster&subject=master)](https://ci.eionet.europa.eu/view/Github/job/volto-addons/job/volto-widget-temporal-coverage/job/master/display/redirect)
-[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage-master&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage-master)
-[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage-master&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage-master)
-[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage-master&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage-master)
-[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage-master&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage-master)
+[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage)
+[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage)
+[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage)
+[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage)
 
 [![Pipeline](https://ci.eionet.europa.eu/buildStatus/icon?job=volto-addons%2Fvolto-widget-temporal-coverage%2Fdevelop&subject=develop)](https://ci.eionet.europa.eu/view/Github/job/volto-addons/job/volto-widget-temporal-coverage/job/develop/display/redirect)
-[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage-develop&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage-develop)
-[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage-develop&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage-develop)
-[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage-develop&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage-develop)
-[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage-develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage-develop)
+[![Lines of Code](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage&branch=develop&metric=ncloc)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage&branch=develop)
+[![Coverage](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage&branch=develop&metric=coverage)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage&branch=develop)
+[![Bugs](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage&branch=develop&metric=bugs)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage&branch=develop)
+[![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-widget-temporal-coverage&branch=develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-widget-temporal-coverage&branch=develop)
 
 [Volto](https://github.com/plone/volto) Widget: Temporal Coverage
 
