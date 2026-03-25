@@ -11,12 +11,22 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+#. Default: "No selection"
 #: components/manage/Widgets/TemporalWidget
-# defaultMessage: No selection
 msgid "No selection"
 msgstr ""
 
+#. Default: "Temporal coverage"
 #: components/manage/Widgets/TemporalWidget
-# defaultMessage: Temporal coverage
 msgid "Temporal coverage"
+msgstr ""
+
+#. Default: "No"
+#: components/theme/SearchBlock/TemporalCoverageFacet/TemporalCoverageFacetFilterListEntry
+msgid "no"
+msgstr ""
+
+#. Default: "Yes"
+#: components/theme/SearchBlock/TemporalCoverageFacet/TemporalCoverageFacetFilterListEntry
+msgid "yes"
 msgstr ""

@@ -3,14 +3,14 @@ import { render, screen } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-intl-redux';
 import thunk from 'redux-thunk';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 import TemporalWidget from './TemporalWidget';
 
 const mockStore = configureStore([thunk]);
 
 describe('TemporalWidget', () => {
-  it('renders an empty temporal widget edit component when temporal is missing', () => {
+  it('renders an empty temporal widget edit component when temporal is missing', async () => {
     const store = mockStore({
       intl: {
         locale: 'en',
@@ -28,8 +28,8 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(screen.getByText('Temporal coverage')).toBeInTheDocument();
-    expect(screen.getByText('Select...')).toBeInTheDocument();
+    expect(await screen.findByText('Temporal coverage')).toBeInTheDocument();
+    expect(await screen.findByText('Select...')).toBeInTheDocument();
   });
 
   it('renders an temporal widget edit component when temporal is null', () => {
@@ -74,7 +74,7 @@ describe('TemporalWidget', () => {
     );
   });
 
-  it('renders an temporal widget edit component', () => {
+  it('renders an temporal widget edit component', async () => {
     const store = mockStore({
       intl: {
         locale: 'en',
@@ -93,10 +93,10 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(screen.getByText('1900')).toBeInTheDocument();
+    expect(await screen.findByText('1900')).toBeInTheDocument();
   });
 
-  it('renders an temporal widget edit component with ranges', () => {
+  it('renders an temporal widget edit component with ranges', async () => {
     const store = mockStore({
       intl: {
         locale: 'en',
@@ -118,39 +118,10 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(screen.getByText('1900-1901')).toBeInTheDocument();
+    expect(await screen.findByText('1900-1901')).toBeInTheDocument();
   });
 
-  it('renders an temporal widget edit component with ranges and single values', () => {
-    const store = mockStore({
-      intl: {
-        locale: 'en',
-        messages: {},
-      },
-      temporal: [
-        { value: '1900', label: '1900' },
-        { value: '1901', label: '1901' },
-        { value: '1905', label: '1905' },
-        { value: '1907', label: '1907' },
-      ],
-    });
-    const state = store.getState();
-    render(
-      <Provider store={store}>
-        <TemporalWidget
-          value={state}
-          id="temporal"
-          title="My field"
-          onChange={() => {}}
-        />
-      </Provider>,
-    );
-    expect(screen.getByText('1900-1901')).toBeInTheDocument();
-    expect(screen.getByText('1905')).toBeInTheDocument();
-    expect(screen.getByText('1907')).toBeInTheDocument();
-  });
-
-  it('renders an temporal widget edit component with ranges and single values', () => {
+  it('renders an temporal widget edit component with ranges and single values', async () => {
     const store = mockStore({
       intl: {
         locale: 'en',
@@ -174,12 +145,41 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(screen.getByText('1900-1901')).toBeInTheDocument();
-    expect(screen.getByText('1905')).toBeInTheDocument();
-    expect(screen.getByText('1907')).toBeInTheDocument();
+    expect(await screen.findByText('1900-1901')).toBeInTheDocument();
+    expect(await screen.findByText('1905')).toBeInTheDocument();
+    expect(await screen.findByText('1907')).toBeInTheDocument();
   });
 
-  it('renders an temporal widget edit component with multiple ranges and single values', () => {
+  it('renders an temporal widget edit component with ranges and single values', async () => {
+    const store = mockStore({
+      intl: {
+        locale: 'en',
+        messages: {},
+      },
+      temporal: [
+        { value: '1900', label: '1900' },
+        { value: '1901', label: '1901' },
+        { value: '1905', label: '1905' },
+        { value: '1907', label: '1907' },
+      ],
+    });
+    const state = store.getState();
+    render(
+      <Provider store={store}>
+        <TemporalWidget
+          value={state}
+          id="temporal"
+          title="My field"
+          onChange={() => {}}
+        />
+      </Provider>,
+    );
+    expect(await screen.findByText('1900-1901')).toBeInTheDocument();
+    expect(await screen.findByText('1905')).toBeInTheDocument();
+    expect(await screen.findByText('1907')).toBeInTheDocument();
+  });
+
+  it('renders an temporal widget edit component with multiple ranges and single values', async () => {
     const store = mockStore({
       intl: {
         locale: 'en',
@@ -204,12 +204,12 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(screen.getByText('1900-1901')).toBeInTheDocument();
-    expect(screen.getByText('1905')).toBeInTheDocument();
-    expect(screen.getByText('1907-1908')).toBeInTheDocument();
+    expect(await screen.findByText('1900-1901')).toBeInTheDocument();
+    expect(await screen.findByText('1905')).toBeInTheDocument();
+    expect(await screen.findByText('1907-1908')).toBeInTheDocument();
   });
 
-  it('renders an temporal widget edit component with joined temporal ranges from existing temporal ranges and new temporal ranges', () => {
+  it('renders an temporal widget edit component with joined temporal ranges from existing temporal ranges and new temporal ranges', async () => {
     const store = mockStore({
       intl: {
         locale: 'en',
@@ -231,10 +231,10 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(screen.getByText('1898-1905')).toBeInTheDocument();
+    expect(await screen.findByText('1898-1905')).toBeInTheDocument();
   });
 
-  it('renders an temporal widget edit component with existing temporal ranges and single values', () => {
+  it('renders an temporal widget edit component with existing temporal ranges and single values', async () => {
     const store = mockStore({
       intl: {
         locale: 'en',
@@ -257,12 +257,12 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(screen.getByText('1890')).toBeInTheDocument();
-    expect(screen.getByText('1900-1905')).toBeInTheDocument();
-    expect(screen.getByText('1915')).toBeInTheDocument();
+    expect(await screen.findByText('1890')).toBeInTheDocument();
+    expect(await screen.findByText('1900-1905')).toBeInTheDocument();
+    expect(await screen.findByText('1915')).toBeInTheDocument();
   });
 
-  it('renders an temporal widget edit component with existing temporal ranges ignoring value already present', () => {
+  it('renders an temporal widget edit component with existing temporal ranges ignoring value already present', async () => {
     const store = mockStore({
       intl: {
         locale: 'en',
@@ -284,6 +284,6 @@ describe('TemporalWidget', () => {
         />
       </Provider>,
     );
-    expect(screen.getByText('1900-1905')).toBeInTheDocument();
+    expect(await screen.findByText('1900-1905')).toBeInTheDocument();
   });
 });
