@@ -1,6 +1,7 @@
 {
   "name": "@eeacms/volto-widget-temporal-coverage-dev",
-  "version": "1.0.0-alpha.0",
+  "private": true,
+  "version": "8.0.0",
   "description": "volto-widget-temporal-coverage: Volto add-on",
   "author": "European Environment Agency: IDM2 A-Team",
   "homepage": "https://github.com/eea/volto-widget-temporal-coverage",
