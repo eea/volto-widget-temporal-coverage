@@ -71,23 +71,58 @@ const TemporalCoverageFacet = (props) => {
 
   const [endValue, handleChangeEndValue] = useDebouncedInput(end);
 
-  const debouncedSliderChangeHandler = debounce((sliderRange) => {
-    if (
-      !(
-        sliderRange?.[0] >= min &&
-        sliderRange?.[1] <= max &&
-        sliderRange?.[0] <= max &&
-        sliderRange?.[1] >= min
-      )
-    ) {
-      return;
-    }
-    onChange(facet?.field?.value, [sliderRange[0], sliderRange[1]]);
-    if (sliderRange[0] !== startValue)
-      handleChangeStartValue(parseInt(sliderRange[0]), () => {});
-    if (sliderRange[0] !== endValue)
-      handleChangeEndValue(parseInt(sliderRange[1]), () => {});
-  }, 300);
+  // The debounced handler must survive re-renders, otherwise every render
+  // creates a new one with a fresh timer and nothing is debounced. It reads
+  // the current props and state through a ref instead of closing over them.
+  const latest = React.useRef();
+  latest.current = {
+    min,
+    max,
+    facet,
+    onChange,
+    startValue,
+    endValue,
+    handleChangeStartValue,
+    handleChangeEndValue,
+  };
+
+  const debouncedSliderChangeHandler = React.useMemo(
+    () =>
+      debounce((sliderRange) => {
+        const {
+          min,
+          max,
+          facet,
+          onChange,
+          startValue,
+          endValue,
+          handleChangeStartValue,
+          handleChangeEndValue,
+        } = latest.current;
+        if (
+          !(
+            sliderRange?.[0] >= min &&
+            sliderRange?.[1] <= max &&
+            sliderRange?.[0] <= max &&
+            sliderRange?.[1] >= min
+          )
+        ) {
+          return;
+        }
+        onChange(facet?.field?.value, [sliderRange[0], sliderRange[1]]);
+        if (sliderRange[0] !== startValue)
+          handleChangeStartValue(parseInt(sliderRange[0]), () => {});
+        if (sliderRange[0] !== endValue)
+          handleChangeEndValue(parseInt(sliderRange[1]), () => {});
+      }, 300),
+    [],
+  );
+
+  // Drop a pending slider change when the facet goes away.
+  React.useEffect(
+    () => () => debouncedSliderChangeHandler.cancel(),
+    [debouncedSliderChangeHandler],
+  );
 
   return (
     <div className="temporal-facet">

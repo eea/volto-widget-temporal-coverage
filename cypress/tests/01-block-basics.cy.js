@@ -25,6 +25,11 @@ describe('Blocks Tests', () => {
     cy.get('#blockform-fieldset-facets').click();
     cy.get('[aria-label="Add Facet"]').click();
 
+    // The facet field is required, and Volto 19.8 validates the facets of the
+    // search block before saving (nested object_list validation), so pick one.
+    cy.get('#field-field-1-facets-0').click();
+    cy.get('.react-select__menu').contains('Effective date').click();
+
     cy.get('#field-type-2-facets-0').click();
     cy.get('.react-select__menu').contains('Temporal Coverage').click();
     cy.get('.years-input .ui.input input')
